@@ -1,0 +1,46 @@
+.skillNameField {
+    position: relative;
+    top: 75px;
+    left: 435px;
+    width: 350px;
+}
+
+.skillDescriptionField {
+    position: relative;
+    top: 100px;
+    left: 435px;
+    width: 350px;
+}
+
+.button {
+    position: relative;
+    top: 125px;
+}
+
+textarea {
+    resize: none;
+}
+
+.name, .description {
+    position: relative;
+    top: 50px;
+    width: 300px;
+}
+
+.name label, .description label {
+    font-size: 20px;
+    position: relative;
+    left: 300px;
+}
+
+.name input {
+    position: relative;
+    left: 625px;
+    top: -35px;
+}
+
+.description textarea {
+    position: relative;
+    left: 625px;
+    top: -35px;
+}

@@ -1,0 +1,29 @@
+table {
+    position: relative;
+    top: 50px;
+}
+
+.text {
+    position: relative;
+    top: 50px;
+    color: white;
+}
+
+.button {
+    position: relative;
+    top: 100px;
+}
+
+.teamNameField {
+    position: relative;
+    top: 75px;
+    left: 435px;
+    width: 350px;
+}
+
+.employees {
+    position: relative;
+    top: 50px;
+}
+
+
