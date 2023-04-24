@@ -23,7 +23,6 @@ class Team extends Component {
                     team: data,
                     users: data.users
                 })
-                console.log(this.state.team);
             }).catch(function (error) {
             console.log(error);
         })
@@ -70,6 +69,11 @@ class Team extends Component {
         })
     };
 
+    handleOpenUpdateWindow = () => {
+        localStorage.setItem("name", this.state.team.name);
+        localStorage.setItem("teamId", this.state.team.id);
+    }
+
     render() {
         const processedUsers = React.Children.toArray(this.state.users.map((user) =>
             this.processUsers(this.state.users.indexOf(user) + 1, user)));
@@ -92,7 +96,7 @@ class Team extends Component {
                     </table>
 
                     <div className={"button"}>
-                        <NavLink to={"/updateTeam"}>
+                        <NavLink to={"/updateTeam"} onClick={this.handleOpenUpdateWindow}>
                             <button type="button" className="btn btn-dark">Update team</button>
                         </NavLink>
                     </div>

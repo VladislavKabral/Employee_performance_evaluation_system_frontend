@@ -34,8 +34,6 @@ class AddTeam extends Component {
             }
         });
 
-        console.log(chosenUsers);
-
         let cache = [];
         if (name) {
             await fetch('http://localhost:8080/teams', {
@@ -55,7 +53,7 @@ class AddTeam extends Component {
                 })
             });
             input.value = '';
-            //window.location.assign("/teams");
+            window.location.assign("/teams");
         }
     }
 
