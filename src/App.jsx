@@ -10,6 +10,9 @@ import UpdateTeam from "./components/team/UpdateTeam.jsx";
 import Skills from "./components/skill/Skills.jsx";
 import UpdateSkill from "./components/skill/UpdateSkill.jsx";
 import AddSkill from "./components/skill/AddSkill.jsx";
+import AddForm from "./components/form/AddForm.jsx";
+import Forms from "./components/form/Forms.jsx";
+import UpdateForm from "./components/form/UpdateForm.jsx";
 
 function App() {
 
@@ -20,13 +23,16 @@ function App() {
             <Routes>
                 <Route path={"/teams"} element={<Teams/>}/>
                 <Route path={"/skills"} element={<Skills/>}/>
-                <Route path={"/forms"} element={<Form/>}/>
                 <Route path={"/team"} element={<Team/>}/>
                 <Route path={"/addTeam"} element={<AddTeam/>}/>
                 <Route path={"/updateTeam"} element={<UpdateTeam/>}/>
                 <Route path={"/skill"} element={<Skill/>}/>
                 <Route path={"/updateSkill"} element={<UpdateSkill/>}/>
                 <Route path={"/addSkill"} element={<AddSkill/>}/>
+                <Route path={"/forms"} element={<Forms/>}/>
+                <Route path={"/form"} element={<Form/>}/>
+                <Route path={"/addForm"} element={<AddForm/>}/>
+                <Route path={"/updateForm"} element={<UpdateForm/>}/>
             </Routes>
         </div>
     </div>

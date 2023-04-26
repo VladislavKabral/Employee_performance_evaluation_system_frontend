@@ -64,23 +64,23 @@ class Skill extends Component {
                     <div className={"name"}>
                         <label>Name: </label>
                         <input id={"skillNameInput"} type="text" className="form-control" placeholder="Skill name"
-                                   aria-label="Skill name" value={this.state.skill.name} readOnly={true}/>
+                                   aria-label="Skill name" defaultValue={this.state.skill.name} readOnly={true}/>
                     </div>
 
                     <div className={"description"}>
                         <label>Description: </label>
                         <textarea id={"skillDescriptionInput"} placeholder="Skill description" className="form-control"
-                                  rows="5" value={this.state.skill.description} readOnly={true}></textarea>
+                                  rows="5" defaultValue={this.state.skill.description} readOnly={true}></textarea>
                     </div>
 
                     <div className={"button"}>
                         <NavLink to={"/updateSkill"} onClick={this.handleUpdateWindowOpen}>
-                            <button type="button" className="btn btn-dark">Update skill</button>
+                            <button id={"skillUpdateButton"} type="button" className="btn btn-dark">Update skill</button>
                         </NavLink>
                     </div>
                     <br/>
                     <div className={"button"}>
-                        <button type="button" className="btn btn-dark" onClick={this.handleOpen}>Delete</button>
+                        <button id={"skillDeleteButton"} type="button" className="btn btn-dark" onClick={this.handleOpen}>Delete</button>
                     </div>
                     <Modal show={this.state.isModal} onHide={this.handleClose}>
                         <Modal.Header closeButton>
@@ -99,7 +99,7 @@ class Skill extends Component {
                     <br/>
                     <div className={"button"}>
                         <NavLink to={"/skills"}>
-                            <button type="button" className="btn btn-dark">Back</button>
+                            <button id={"skillBackButton"} type="button" className="btn btn-dark">Back</button>
                         </NavLink>
                     </div>
                 </div>

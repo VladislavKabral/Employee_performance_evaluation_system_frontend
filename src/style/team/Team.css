@@ -26,4 +26,21 @@ table {
     top: 50px;
 }
 
+#teamUpdateButton {
+    position: relative;
+    top: -20px;
+    left: -400px;
+}
+
+#teamDeleteButton {
+    position: relative;
+    top: -96px;
+    left: 10px;
+}
+
+#teamBackButton {
+    position: relative;
+    top: -172px;
+    left: 450px;
+}
 

@@ -97,12 +97,12 @@ class Team extends Component {
 
                     <div className={"button"}>
                         <NavLink to={"/updateTeam"} onClick={this.handleOpenUpdateWindow}>
-                            <button type="button" className="btn btn-dark">Update team</button>
+                            <button id={"teamUpdateButton"} type="button" className="btn btn-dark">Update team</button>
                         </NavLink>
                     </div>
                     <br/>
                     <div className={"button"}>
-                        <button type="button" className="btn btn-dark" onClick={this.handleOpen}>Delete</button>
+                        <button id={"teamDeleteButton"} type="button" className="btn btn-dark" onClick={this.handleOpen}>Delete</button>
                     </div>
                     <Modal show={this.state.isModal} onHide={this.handleClose}>
                         <Modal.Header closeButton>
@@ -121,7 +121,7 @@ class Team extends Component {
                     <br/>
                     <div className={"button"}>
                         <NavLink to={"/teams"}>
-                            <button type="button" className="btn btn-dark">Back</button>
+                            <button id={"teamBackButton"} type="button" className="btn btn-dark">Back</button>
                         </NavLink>
                     </div>
                 </div>

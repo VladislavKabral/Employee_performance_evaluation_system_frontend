@@ -14,7 +14,7 @@
 
 .button {
     position: relative;
-    top: 125px;
+    margin-top: 15px;
 }
 
 textarea {
@@ -43,4 +43,34 @@ textarea {
     position: relative;
     left: 625px;
     top: -35px;
+}
+
+#addSkillBackButton {
+    position: relative;
+    top: -50px;
+    left: 125px;
+}
+
+#addSkillCreateButton {
+    position: relative;
+    top: 26px;
+    left: -115px;
+}
+
+#skillUpdateButton {
+    position: relative;
+    top: -50px;
+    left: -160px;
+}
+
+#skillDeleteButton {
+    position: relative;
+    top: -126px;
+    left: 50px;
+}
+
+#skillBackButton {
+    position: relative;
+    top: -202px;
+    left: 275px;
 }
