@@ -75,3 +75,13 @@
     left: -300px;
 }
 
+.deleteField {
+    position: relative;
+    left: 365px;
+    top: -110px;
+    width: 40px;
+}
+
+.deleteField img:hover {
+    cursor: pointer;
+}

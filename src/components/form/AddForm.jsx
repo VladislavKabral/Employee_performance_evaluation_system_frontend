@@ -42,8 +42,6 @@ class AddForm extends Component {
             questions.push(question);
         }
 
-        console.log(questions);
-
         let cache = [];
         if (name && questions) {
             await fetch('http://localhost:8080/forms', {
@@ -82,6 +80,23 @@ class AddForm extends Component {
         });
     }
 
+    handleDeleteField = (index) => {
+        this.setState({
+            questionBodies: []
+        })
+
+        for (let i = 0; i < this.state.questionFormCount; i++) {
+            let input = document.getElementById(`${i}`);
+            this.state.questionBodies.push(input.value);
+        }
+
+        this.state.questionBodies.splice(index, 1);
+
+        this.setState({
+            questionFormCount: this.state.questionFormCount - 1
+        });
+    }
+
     generateSkillSelector() {
         let options = [];
         this.state.skills.map((skill) => {
@@ -101,6 +116,10 @@ class AddForm extends Component {
                 <select className="form-control" id={"skill"+index}>
                     {this.generateSkillSelector()}
                 </select>
+                <div className={"deleteField"}>
+                    <img id={"img"+index} src={"./src/assets/buttonBackground.png"} alt={"Delete"}
+                         onClick={() => this.handleDeleteField(index)}/>
+                </div>
             </div>
         )
     }

@@ -13,6 +13,9 @@ import AddSkill from "./components/skill/AddSkill.jsx";
 import AddForm from "./components/form/AddForm.jsx";
 import Forms from "./components/form/Forms.jsx";
 import UpdateForm from "./components/form/UpdateForm.jsx";
+import Packages from "./components/package/Packages.jsx";
+import AddPackage from "./components/package/AddPackage.jsx";
+import UpdatePackage from "./components/package/UpdatePackage.jsx";
 
 function App() {
 
@@ -33,6 +36,9 @@ function App() {
                 <Route path={"/form"} element={<Form/>}/>
                 <Route path={"/addForm"} element={<AddForm/>}/>
                 <Route path={"/updateForm"} element={<UpdateForm/>}/>
+                <Route path={"/packages"} element={<Packages/>}/>
+                <Route path={"/addPackage"} element={<AddPackage/>}/>
+                <Route path={"/updatePackage"} element={<UpdatePackage/>}/>
             </Routes>
         </div>
     </div>

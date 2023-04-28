@@ -24,6 +24,11 @@ class UpdateForm extends Component {
             console.log(error);
         })
         this.state.form = JSON.parse(localStorage.getItem("form"));
+        this.state.questionBodies = [];
+        this.state.form.questions.forEach((question) => {
+            this.state.questionBodies.push(question.text);
+        });
+        this.state.questionFormCount = this.state.questionBodies.length;
     }
 
     async updateForm(questionCount) {
@@ -44,6 +49,8 @@ class UpdateForm extends Component {
         }
 
         let cache = [];
+        console.log(name);
+        console.log(questions);
         if (name && questions) {
             await fetch(`http://localhost:8080/forms/${this.state.form.id}`, {
                 method: 'PATCH',
@@ -62,7 +69,7 @@ class UpdateForm extends Component {
                 })
             })
             nameInput.value = '';
-            //window.location.assign("/forms");
+            window.location.assign("/form");
         }
     }
 
@@ -96,7 +103,7 @@ class UpdateForm extends Component {
         return (
             <div className={"questionField"}>
                 <textarea id={index} placeholder="Question body" className="form-control"
-                          rows="3" value={this.state.questionBodies[index]}></textarea>
+                          rows="3" defaultValue={this.state.questionBodies[index]}></textarea>
                 <select className="form-control" id={"skill"+index}>
                     {this.generateSkillSelector()}
                 </select>
@@ -127,7 +134,7 @@ class UpdateForm extends Component {
                 </div>
                 <div className={"formNameField"}>
                     <input id={"formNameInput"} type="text" className="form-control" placeholder="Form name"
-                           aria-label="Form name"/>
+                           aria-label="Form name" defaultValue={this.state.form.name}/>
                 </div>
                 <div className={"questionsFields"}>
                     {inputs}
@@ -140,7 +147,7 @@ class UpdateForm extends Component {
                         Update form</button>
                 </div>
                 <div className={"button"}>
-                    <NavLink to={"/forms"}>
+                    <NavLink to={"/form"}>
                         <button id={"updateFormBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>
                 </div>

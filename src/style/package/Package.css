@@ -1,0 +1,61 @@
+.packageNameField {
+    position: relative;
+    top: 75px;
+    left: 408px;
+    width: 400px;
+}
+
+.formInputSelect {
+    position: relative;
+    top: 100px;
+    left: 408px;
+    width: 400px;
+}
+
+.userInputSelect {
+    position: relative;
+    top: 125px;
+    left: 408px;
+    width: 400px;
+}
+
+.isPublicInput {
+    position: relative;
+    top: 125px;
+    left: 408px;
+    width: 400px;
+}
+
+.isPublicCheck {
+    position: relative;
+    width: 25px;
+    height: 25px;
+}
+
+.isPublicCheck input {
+    width: 25px;
+    height: 25px;
+}
+
+#isPublicLabel {
+    position: relative;
+    top: 25px;
+    left: -75px;
+}
+
+#isPublicInput {
+    position: relative;
+    left: 265px;
+    top: -10px;
+}
+
+#addPackageCreateButton {
+    position: relative;
+    top: 35px;
+}
+
+#addPackageBackButton {
+    position: relative;
+    top: 35px;
+    width: 135px;
+}

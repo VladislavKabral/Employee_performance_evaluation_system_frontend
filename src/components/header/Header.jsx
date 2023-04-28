@@ -10,7 +10,7 @@ function Header() {
                     <div className="navbar-nav">
                         <li><NavLink className="nav-item nav-link" to={"/users/{id}"}>Profile</NavLink></li>
                         <li><NavLink className="nav-item nav-link" to={"/requests"}>Requests</NavLink></li>
-                        <li><NavLink className="nav-item nav-link" to={"/feedbacks"}>Feedbacks</NavLink></li>
+                        <li><NavLink className="nav-item nav-link" to={"/packages"}>Packages</NavLink></li>
                         <li><NavLink className="nav-item nav-link" to={"/forms"}>Forms</NavLink></li>
                         <li><NavLink className="nav-item nav-link" to={"/employees"}>Employees</NavLink></li>
                         <li><NavLink className="nav-item nav-link" to={"/skills"}>Skills</NavLink></li>
