@@ -16,6 +16,8 @@ import UpdateForm from "./components/form/UpdateForm.jsx";
 import Packages from "./components/package/Packages.jsx";
 import AddPackage from "./components/package/AddPackage.jsx";
 import UpdatePackage from "./components/package/UpdatePackage.jsx";
+import Package from "./components/package/Package.jsx";
+import Profile from "./components/user/Profile.jsx";
 
 function App() {
 
@@ -37,8 +39,10 @@ function App() {
                 <Route path={"/addForm"} element={<AddForm/>}/>
                 <Route path={"/updateForm"} element={<UpdateForm/>}/>
                 <Route path={"/packages"} element={<Packages/>}/>
+                <Route path={"/package"} element={<Package/>}/>
                 <Route path={"/addPackage"} element={<AddPackage/>}/>
                 <Route path={"/updatePackage"} element={<UpdatePackage/>}/>
+                <Route path={"/profile"} element={<Profile/>}/>
             </Routes>
         </div>
     </div>

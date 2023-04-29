@@ -74,7 +74,7 @@ class AddPackage extends Component {
                 })
             })
             nameInput.value = '';
-            //window.location.assign("/packages");
+            window.location.assign("/packages");
         }
     }
 

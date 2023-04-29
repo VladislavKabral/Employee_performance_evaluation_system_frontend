@@ -1,0 +1,88 @@
+.user {
+    height: 300px;
+}
+
+.userFullName {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    top: 35px;
+    left: 75px;
+    background: rgba(0, 0, 0, 0.65);
+
+}
+
+.userFullName img {
+    position: relative;
+    top: 25px;
+    width: 175px;
+    height: 175px;
+    border-radius: 90px;
+}
+
+.userFullName h2 {
+    position: relative;
+    top: 100px;
+    font-style: italic;
+    color: white;
+}
+
+.userInfo {
+    position: relative;
+    left: 725px;
+    top: -365px;
+    width: 500px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.userInfo label {
+    position: relative;
+    left: -175px;
+    top: 15px;
+    font-size: 25px;
+    font-style: italic;
+    color: white;
+}
+
+.userInfo h3 {
+    position: relative;
+    left: 25px;
+    top: -20px;
+    color: aliceblue;
+}
+
+.userInfo hr {
+    position: relative;
+    left: 27px;
+    top: -32px;
+    color: lime;
+    width: 448px;
+    border-width: 3px;
+}
+
+.userEmail {
+    position: relative;
+    top: -50px;
+}
+
+.userTeam {
+    position: relative;
+    top: -100px;
+}
+
+.userManager {
+    position: relative;
+    top: -150px;
+}
+
+.userSalary {
+    position: relative;
+    top: -200px;
+    height: 50px;
+}
+
+#userRequestButton {
+    position: relative;
+    top: -150px;
+}

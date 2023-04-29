@@ -59,3 +59,47 @@
     top: 35px;
     width: 135px;
 }
+
+#packageFormInput {
+    position: relative;
+    top: -40px;
+    left: 625px;
+}
+
+#packageUserInput {
+    position: relative;
+    top: -40px;
+    left: 625px;
+}
+
+.form, .targetUser, .name {
+    position: relative;
+    top: 50px;
+    width: 300px;
+    left: -50px;
+}
+
+.form label, .targetUser label {
+    font-size: 20px;
+    position: relative;
+    left: 300px;
+}
+
+#packageUpdateButton {
+    position: relative;
+    left: -200px;
+    top: -50px;
+}
+
+#packageDeleteButton {
+    position: relative;
+    top: -125px;
+    width: 150px;
+}
+
+#packageBackButton {
+    position: relative;
+    top: -203px;
+    left: 200px;
+    width: 150px;
+}
