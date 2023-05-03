@@ -21,7 +21,8 @@ class Team extends Component {
             .then(data => {
                 this.setState({
                     team: data,
-                    users: data.users
+                    users: data.users,
+                    managerFullName: ""
                 })
             }).catch(function (error) {
             console.log(error);
@@ -30,13 +31,12 @@ class Team extends Component {
 
     processUsers(index, user) {
         let userFullName = user.lastname + ' ' + user.firstname;
-
         return (
             <>
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink to={"/profile"} onClick={() => localStorage.setItem("userId", user.id)}>
+                        <NavLink className={"nav-link"} to={"/profile"} onClick={() => this.handleOpenProfileWindow(user)}>
                             {userFullName}
                         </NavLink>
                     </td>
@@ -72,6 +72,11 @@ class Team extends Component {
     handleOpenUpdateWindow = () => {
         localStorage.setItem("name", this.state.team.name);
         localStorage.setItem("teamId", this.state.team.id);
+    }
+
+    handleOpenProfileWindow = (user) => {
+        localStorage.setItem("userId", user.id);
+        localStorage.setItem("managerFullName", "managerFullName");
     }
 
     render() {

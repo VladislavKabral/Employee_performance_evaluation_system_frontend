@@ -29,17 +29,10 @@ class Profile extends Component {
             }).catch(function (error) {
             console.log(error);
         })
+    }
 
-        fetch(`http://localhost:8080/users/${managerUserId}`)
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    managerName: data.lastname + " " + data.firstname
-                })
-                console.log(this.state.managerName);
-            }).catch(function (error) {
-            console.log(error);
-        })
+    handleRequestsWindowOpen = () => {
+        localStorage.setItem("userId", localStorage.getItem("userId"));
     }
 
     render() {
@@ -76,7 +69,7 @@ class Profile extends Component {
                         <h3>{this.state.salary.value + "$"}</h3>
                         <hr/>
                     </div>
-                    <NavLink to={"/teams"}>
+                    <NavLink to={"/requests"}>
                         <button id={"userRequestButton"} type="button" className="btn btn-dark">Requests</button>
                     </NavLink>
                 </div>

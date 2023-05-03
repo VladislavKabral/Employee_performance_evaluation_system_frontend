@@ -28,19 +28,43 @@ table {
 
 #teamUpdateButton {
     position: relative;
-    top: -20px;
+    top: 113px;
     left: -400px;
 }
 
 #teamDeleteButton {
     position: relative;
-    top: -96px;
+    top: 35px;
     left: 10px;
 }
 
 #teamBackButton {
     position: relative;
-    top: -172px;
+    top: -41px;
     left: 450px;
 }
 
+#teamsCreateNewTeamButton {
+    position: relative;
+    top: 100px;
+}
+
+#addTeamCreateButton {
+    position: relative;
+    top: 150px;
+}
+
+#addTeamBackButton {
+    position: relative;
+    top: 150px;
+}
+
+#updateTeamBackButton {
+    position: relative;
+    top: 150px;
+}
+
+#updateTeamUpdateButton {
+    position: relative;
+    top: 150px;
+}

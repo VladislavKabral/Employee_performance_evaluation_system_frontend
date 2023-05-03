@@ -53,12 +53,12 @@ class UpdateSkill extends Component {
                               rows="5" defaultValue={localStorage.getItem("description")}></textarea>
                 </div>
                 <div className={"button"}>
-                    <button type="button" className="btn btn-dark" onClick={this.updateSkill}>Update</button>
+                    <button id={"updateSkillUpdateButton"} type="button" className="btn btn-dark" onClick={this.updateSkill}>Update</button>
                 </div>
                 <br/>
                 <div className={"button"}>
                     <NavLink to={"/skills"}>
-                        <button type="button" className="btn btn-dark">Back</button>
+                        <button id={"updateSkillBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>
                 </div>
             </div>

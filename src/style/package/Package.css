@@ -51,12 +51,12 @@
 
 #addPackageCreateButton {
     position: relative;
-    top: 35px;
+    top: 150px;
 }
 
 #addPackageBackButton {
     position: relative;
-    top: 35px;
+    top: 150px;
     width: 135px;
 }
 
@@ -88,18 +88,33 @@
 #packageUpdateButton {
     position: relative;
     left: -200px;
-    top: -50px;
+    top: 50px;
 }
 
 #packageDeleteButton {
     position: relative;
-    top: -125px;
+    top: -26px;
     width: 150px;
 }
 
 #packageBackButton {
     position: relative;
-    top: -203px;
+    top: -103px;
     left: 200px;
     width: 150px;
+}
+
+#packageCreateRequestButton {
+    position: relative;
+    top: -75px;
+}
+
+.button {
+    position: relative;
+    top: -25px;
+}
+
+#packagesCreateNewPackageButton {
+    position: relative;
+    top: 100px;
 }

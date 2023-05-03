@@ -93,8 +93,13 @@ class UpdatePackage extends Component {
 
     generateFormsSelector() {
         let options = [];
+        const defaultValue = localStorage.getItem("formName");
         this.state.forms.map((form) => {
-            options.push(<option>{form.name}</option>);
+            if (defaultValue === form.name) {
+                options.push(<option selected>{form.name}</option>);
+            } else {
+                options.push(<option>{form.name}</option>);
+            }
         })
 
         return (
@@ -104,8 +109,14 @@ class UpdatePackage extends Component {
 
     generateUsersSelector() {
         let options = [];
+        const defaultValue = localStorage.getItem("userFullName");
         this.state.users.map((user) => {
-            options.push(<option>{user.lastname + " " + user.firstname}</option>);
+            const userFullName = user.lastname + " " + user.firstname;
+            if (defaultValue === userFullName) {
+                options.push(<option selected>{userFullName}</option>);
+            } else {
+                options.push(<option>{userFullName}</option>);
+            }
         })
 
         return (
@@ -124,13 +135,14 @@ class UpdatePackage extends Component {
                            aria-label="Package name" defaultValue={this.state.package.name}/>
                 </div>
                 <div className={"formInputSelect"}>
-                    <select className="form-control" id={"formInput"} defaultValue={this.state.form.name}>
+                    <select className="form-control" id={"formInput"}
+                            defaultValue={localStorage.getItem("formName")}>
                         {this.generateFormsSelector()}
                     </select>
                 </div>
                 <div className={"userInputSelect"}>
                     <select className="form-control" id={"userInput"}
-                            defaultValue={this.state.user.lastname + " " + this.state.user.firstname}>
+                            defaultValue={localStorage.getItem("userFullName")}>
                         {this.generateUsersSelector()}
                     </select>
                 </div>
@@ -139,7 +151,8 @@ class UpdatePackage extends Component {
                         <h4>Public: </h4>
                     </div>
                     <div className={"isPublicCheck"}>
-                        <input className="form-check-input" type="checkbox" value="" id={"isPublicInput"} defaultValue={this.state.package.isPublic}/>
+                        <input className="form-check-input" type="checkbox" value="" id={"isPublicInput"}
+                               defaultChecked={localStorage.getItem("packageIsPublic") === "true"}/>
                     </div>
                 </div>
                 <div className={"button"}>

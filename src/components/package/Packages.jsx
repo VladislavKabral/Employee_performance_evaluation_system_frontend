@@ -28,7 +28,7 @@ class Packages extends Component {
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink to={"/package"} onClick={() => localStorage.setItem("packageId", feedbackPackage.id)}>
+                        <NavLink className={"nav-link"} to={"/package"} onClick={() => localStorage.setItem("packageId", feedbackPackage.id)}>
                             {feedbackPackage.name}
                         </NavLink>
                     </td>
@@ -58,7 +58,7 @@ class Packages extends Component {
                 </div>
                 <div className={"button"}>
                     <NavLink to={"/addPackage"}>
-                        <button type="button" className="btn btn-dark">Create new package</button>
+                        <button id={"packagesCreateNewPackageButton"} type="button" className="btn btn-dark">Create new package</button>
                     </NavLink>
                 </div>
             </div>

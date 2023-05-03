@@ -140,7 +140,7 @@ class UpdateForm extends Component {
                     {inputs}
                 </div>
                 <div className={"button"}>
-                    <button type="button" className="btn btn-dark" onClick={this.handleAddQuestion}>Add question</button>
+                    <button id={"updateFormAddQuestionButton"} type="button" className="btn btn-dark" onClick={this.handleAddQuestion}>Add question</button>
                 </div>
                 <div className={"button"}>
                     <button id={"updateFormUpdateButton"} type="button" className="btn btn-dark" onClick={() => this.updateForm(this.state.questionFormCount)}>

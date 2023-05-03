@@ -65,7 +65,7 @@ class AddTeam extends Component {
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink to={"/user/{id}"} onClick={() => localStorage.setItem("userId", user.id)}>
+                        <NavLink className={"nav-link"} to={"/profile"} onClick={() => localStorage.setItem("userId", user.id)}>
                             {userFullName}
                         </NavLink>
                     </td>
@@ -104,12 +104,13 @@ class AddTeam extends Component {
                     </table>
                 </div>
                 <div className={"button"}>
-                    <button type="button" className="btn btn-dark" onClick={() => this.createTeam(this.state.users)}>Create</button>
+                    <button id={"addTeamCreateButton"} type="button" className="btn btn-dark"
+                            onClick={() => this.createTeam(this.state.users)}>Create</button>
                 </div>
                 <br/>
                 <div className={"button"}>
                     <NavLink to={"/teams"}>
-                        <button type="button" className="btn btn-dark">Back</button>
+                        <button id={"addTeamBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>
                 </div>
             </div>

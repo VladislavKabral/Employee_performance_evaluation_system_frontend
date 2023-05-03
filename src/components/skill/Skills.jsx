@@ -28,7 +28,7 @@ class Skills extends Component {
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink to={"/skill"} onClick={() => localStorage.setItem("skillId", skill.id)}>
+                        <NavLink className={"nav-link"} to={"/skill"} onClick={() => localStorage.setItem("skillId", skill.id)}>
                             {skill.name}
                         </NavLink>
                     </td>
@@ -61,7 +61,7 @@ class Skills extends Component {
                 </div>
                 <div className={"button"}>
                     <NavLink to={"/addSkill"}>
-                        <button type="button" className="btn btn-dark">Create new skill</button>
+                        <button id={"skillsCreateNewSkillButton"} type="button" className="btn btn-dark">Create new skill</button>
                     </NavLink>
                 </div>
             </div>

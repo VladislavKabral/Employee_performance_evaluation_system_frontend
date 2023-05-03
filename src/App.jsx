@@ -18,6 +18,8 @@ import AddPackage from "./components/package/AddPackage.jsx";
 import UpdatePackage from "./components/package/UpdatePackage.jsx";
 import Package from "./components/package/Package.jsx";
 import Profile from "./components/user/Profile.jsx";
+import CreateRequest from "./components/request/CreateRequest.jsx";
+import Requests from "./components/request/Requests.jsx";
 
 function App() {
 
@@ -43,6 +45,8 @@ function App() {
                 <Route path={"/addPackage"} element={<AddPackage/>}/>
                 <Route path={"/updatePackage"} element={<UpdatePackage/>}/>
                 <Route path={"/profile"} element={<Profile/>}/>
+                <Route path={"/createRequest"} element={<CreateRequest/>}/>
+                <Route path={"/requests"} element={<Requests/>}/>
             </Routes>
         </div>
     </div>

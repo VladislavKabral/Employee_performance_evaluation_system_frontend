@@ -27,10 +27,16 @@ textarea {
     width: 300px;
 }
 
-.name label, .description label {
+.name label {
     font-size: 20px;
     position: relative;
     left: 300px;
+}
+
+.description label {
+    font-size: 20px;
+    position: relative;
+    left: 275px;
 }
 
 .name input {
@@ -41,36 +47,53 @@ textarea {
 
 .description textarea {
     position: relative;
-    left: 625px;
+    left: 575px;
     top: -35px;
 }
 
 #addSkillBackButton {
     position: relative;
-    top: -50px;
+    top: 50px;
     left: 125px;
 }
 
 #addSkillCreateButton {
     position: relative;
-    top: 26px;
+    top: 126px;
     left: -115px;
 }
 
 #skillUpdateButton {
     position: relative;
-    top: -50px;
-    left: -160px;
+    top: 50px;
+    left: -185px;
 }
 
 #skillDeleteButton {
     position: relative;
-    top: -126px;
-    left: 50px;
+    top: -26px;
+    left: 15px;
+    width: 100px;
 }
 
 #skillBackButton {
     position: relative;
-    top: -202px;
-    left: 275px;
+    top: -102px;
+    left: 217px;
+    width: 100px;
+}
+
+#skillsCreateNewSkillButton {
+    position: relative;
+    top: 100px;
+}
+
+#updateSkillBackButton {
+    position: relative;
+    top: 150px;
+}
+
+#updateSkillUpdateButton {
+    position: relative;
+    top: 150px;
 }

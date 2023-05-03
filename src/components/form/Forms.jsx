@@ -27,7 +27,7 @@ class Forms extends Component {
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink to={"/form"} onClick={() => localStorage.setItem("formId", form.id)}>
+                        <NavLink className={"nav-link"} to={"/form"} onClick={() => localStorage.setItem("formId", form.id)}>
                             {form.name}
                         </NavLink>
                     </td>
@@ -56,7 +56,7 @@ class Forms extends Component {
                 </div>
                 <div className={"button"}>
                     <NavLink to={"/addForm"}>
-                        <button type="button" className="btn btn-dark">Create new form</button>
+                        <button id={"formsCreateNewFormButton"} type="button" className="btn btn-dark">Create new form</button>
                     </NavLink>
                 </div>
             </div>

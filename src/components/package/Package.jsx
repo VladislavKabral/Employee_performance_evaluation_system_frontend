@@ -55,6 +55,14 @@ class Package extends Component {
 
     handleUpdateWindowOpen = () => {
         localStorage.setItem("packageId", this.state.package.id);
+        localStorage.setItem("formName", this.state.form.name);
+        localStorage.setItem("userFullName", this.state.user.lastname + " " + this.state.user.firstname);
+        localStorage.setItem("packageIsPublic", this.state.package.isPublic);
+    }
+
+    handleCreateRequestWindowOpen = () => {
+        localStorage.setItem("packageName", this.state.package.name);
+        localStorage.setItem("packageId", this.state.package.id);
     }
     render() {
         return (
@@ -107,6 +115,12 @@ class Package extends Component {
                     <div className={"button"}>
                         <NavLink to={"/packages"}>
                             <button id={"packageBackButton"} type="button" className="btn btn-dark">Back</button>
+                        </NavLink>
+                    </div>
+                    <div className={"button"}>
+                        <NavLink to={"/createRequest"}>
+                            <button id={"packageCreateRequestButton"} type="button" className="btn btn-dark"
+                                    onClick={this.handleCreateRequestWindowOpen}>Create request</button>
                         </NavLink>
                     </div>
                 </div>
