@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
-import packages from "../package/Packages.jsx";
 
 class Requests extends Component {
 
@@ -24,6 +23,7 @@ class Requests extends Component {
                         .then(response => response.json())
                         .then(data => {
                             this.state.packages.push(data);
+                            localStorage.setItem(`request${request.id}`, JSON.stringify(data));
                         }).catch(function (error) {
                         console.log(error);
                     })
@@ -33,10 +33,8 @@ class Requests extends Component {
         })
     }
 
-    processRequest(index, request, packages) {
-        // console.log(packages);
-        // console.log(packages.length);
-
+    processRequest(index, request) {
+        const feedbackPackage = JSON.parse(localStorage.getItem(`request${request.id}`));
         let link = request.status.name === "COMPLETED" ? '/feedback' : "/completeFeedback";
 
         return (
@@ -50,7 +48,7 @@ class Requests extends Component {
                     </td>
                     <td>
                         <NavLink className={"nav-link"} to={link}>
-                            {request.sourceUser.lastname + " " + request.sourceUser.firstname}
+                            {feedbackPackage.targetUser.lastname + " " + feedbackPackage.targetUser.firstname}
                         </NavLink>
                     </td>
                     <td>
@@ -70,7 +68,7 @@ class Requests extends Component {
 
     render() {
         const processedRequests = React.Children.toArray(this.state.requests.map((request) =>
-            this.processRequest(this.state.requests.indexOf(request) + 1, request, this.state.packages)));
+            this.processRequest(this.state.requests.indexOf(request) + 1, request)));
 
         return (
             <div>
