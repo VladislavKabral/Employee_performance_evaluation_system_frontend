@@ -20,6 +20,7 @@ import Package from "./components/package/Package.jsx";
 import Profile from "./components/user/Profile.jsx";
 import CreateRequest from "./components/request/CreateRequest.jsx";
 import Requests from "./components/request/Requests.jsx";
+import CompleteFeedback from "./components/feedback/CompleteFeedback.jsx";
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
                 <Route path={"/profile"} element={<Profile/>}/>
                 <Route path={"/createRequest"} element={<CreateRequest/>}/>
                 <Route path={"/requests"} element={<Requests/>}/>
+                <Route path={"/completeFeedback"} element={<CompleteFeedback/>}/>
             </Routes>
         </div>
     </div>

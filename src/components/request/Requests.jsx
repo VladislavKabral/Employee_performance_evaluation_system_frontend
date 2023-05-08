@@ -42,22 +42,26 @@ class Requests extends Component {
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink className={"nav-link"} to={link}>
+                        <NavLink className={"nav-link"} to={link}
+                                 onClick={() => localStorage.setItem("requestId", request.id)}>
                             {request.feedbackPackage.name}
                         </NavLink>
                     </td>
                     <td>
-                        <NavLink className={"nav-link"} to={link}>
+                        <NavLink className={"nav-link"} to={link}
+                                 onClick={() => localStorage.setItem("requestId", request.id)}>
                             {feedbackPackage.targetUser.lastname + " " + feedbackPackage.targetUser.firstname}
                         </NavLink>
                     </td>
                     <td>
-                        <NavLink className={"nav-link"} to={link}>
+                        <NavLink className={"nav-link"} to={link}
+                                 onClick={() => localStorage.setItem("requestId", request.id)}>
                             {request.date}
                         </NavLink>
                     </td>
                     <td>
-                        <NavLink className={"nav-link"} to={link}>
+                        <NavLink className={"nav-link"} to={link}
+                                 onClick={() => localStorage.setItem("requestId", request.id)}>
                             {request.status.name}
                         </NavLink>
                     </td>
