@@ -49,8 +49,6 @@ class UpdateForm extends Component {
         }
 
         let cache = [];
-        console.log(name);
-        console.log(questions);
         if (name && questions) {
             await fetch(`http://localhost:8080/forms/${this.state.form.id}`, {
                 method: 'PATCH',
@@ -88,6 +86,27 @@ class UpdateForm extends Component {
         });
     }
 
+    handleDeleteField = (index) => {
+        this.setState({
+            questionBodies: []
+        })
+
+        for (let i = 0; i < this.state.questionFormCount; i++) {
+            let input = document.getElementById(`${i}`);
+            this.state.questionBodies.push(input.value);
+        }
+
+        this.state.questionBodies.splice(index, 1);
+
+        this.setState({
+            questionFormCount: this.state.questionFormCount - 1
+        });
+
+        for (let i = 0; i < this.state.questionFormCount; i++) {
+            document.getElementById(`${i}`).value = this.state.questionBodies[i];
+        }
+    }
+
     generateSkillSelector() {
         let options = [];
         this.state.skills.map((skill) => {
@@ -107,6 +126,10 @@ class UpdateForm extends Component {
                 <select className="form-control" id={"skill"+index}>
                     {this.generateSkillSelector()}
                 </select>
+                <div className={"deleteField"}>
+                    <img id={"img"+index} src={"./src/assets/buttonBackground.png"} alt={"Delete"}
+                         onClick={() => this.handleDeleteField(index)}/>
+                </div>
             </div>
         )
     }
@@ -146,7 +169,7 @@ class UpdateForm extends Component {
                     <button id={"updateFormUpdateButton"} type="button" className="btn btn-dark" onClick={() => this.updateForm(this.state.questionFormCount)}>
                         Update form</button>
                 </div>
-                <div className={"button"}>
+                <div className={"updateFormBackButton"}>
                     <NavLink to={"/form"}>
                         <button id={"updateFormBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>

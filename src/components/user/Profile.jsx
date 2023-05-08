@@ -15,7 +15,6 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        let managerUserId;
         fetch(`http://localhost:8080/users/${localStorage.getItem("userId")}`)
             .then(response => response.json())
             .then(data => {
@@ -25,7 +24,6 @@ class Profile extends Component {
                     salary: data.salary,
                     team: data.team
                 })
-                managerUserId = data.manager.userId;
             }).catch(function (error) {
             console.log(error);
         })

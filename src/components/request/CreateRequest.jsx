@@ -72,7 +72,7 @@ class CreateRequest extends Component {
                     return value;
                 })
             });
-            window.location.assign("/profile");
+            window.location.assign("/package");
         }
     }
 

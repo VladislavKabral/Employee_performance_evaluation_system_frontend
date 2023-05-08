@@ -95,6 +95,10 @@ class AddForm extends Component {
         this.setState({
             questionFormCount: this.state.questionFormCount - 1
         });
+
+        for (let i = 0; i < this.state.questionFormCount; i++) {
+            document.getElementById(`${i}`).value = this.state.questionBodies[i];
+        }
     }
 
     generateSkillSelector() {
