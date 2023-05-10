@@ -29,10 +29,52 @@ class CompleteFeedback extends Component {
         })
     }
 
+    async createFeedback() {
+        let responses = [];
+        let length = this.state.questions.length;
+
+        for (let i = 0; i < length; i++) {
+            let response = {
+                text: "",
+                rate: "",
+                question: {
+                    text: ""
+                }
+            }
+            response.text = document.getElementById(`answer${i}`).value;
+            response.rate = document.getElementById(`rate${i}`).value;
+            response.question.text = document.getElementById(`questionText${i}`).value;
+            responses.push(response);
+        }
+
+        console.log(responses);
+
+        let cache = [];
+        if (responses) {
+            await fetch(`http://localhost:8080/feedbacks/${localStorage.getItem("requestId")}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify({responses: responses}, function(key, value) {
+                    if (typeof value === 'object' && value !== null) {
+                        if (cache.indexOf(value) !== -1) {
+                            return;
+                        }
+                        cache.push(value);
+                    }
+                    return value;
+                })
+            })
+            window.location.assign("/requests");
+        }
+    }
+
     generateAnswerField(index, question) {
         return (
             <div className={"answer"}>
-                <textarea id={"questionText"} placeholder="Question text" className="form-control"
+                <textarea id={"questionText"+index} placeholder="Question text" className="form-control"
                           rows="1" defaultValue={question.text} readOnly={true}></textarea>
                 <textarea id={`answer${index}`} placeholder="Answer text" className="form-control"
                           rows="1"></textarea>
@@ -72,7 +114,7 @@ class CompleteFeedback extends Component {
                     {generatedAnswerFields}
                 </div>
                 <div className={"completeFeedbackSendButton"}>
-                    <button id={"completeFeedbackSendButton"} type="button" className="btn btn-dark" onClick={() => this.createForm(this.state.questionFormCount)}>
+                    <button id={"completeFeedbackSendButton"} type="button" className="btn btn-dark" onClick={() => this.createFeedback()}>
                         Send</button>
                 </div>
                 <div className={"completeFeedbackBackButton"}>

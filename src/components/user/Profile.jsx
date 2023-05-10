@@ -10,7 +10,9 @@ class Profile extends Component {
             user: {},
             position: {},
             salary: {},
-            team: {}
+            team: {},
+            manager: {},
+            users: []
         }
     }
 
@@ -22,15 +24,28 @@ class Profile extends Component {
                     user: data,
                     position: data.position,
                     salary: data.salary,
-                    team: data.team
+                    team: data.team,
+                    manager: data.manager
                 })
             }).catch(function (error) {
             console.log(error);
         })
-    }
 
-    handleRequestsWindowOpen = () => {
-        localStorage.setItem("userId", localStorage.getItem("userId"));
+        fetch(`http://localhost:8080/users`)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    users: data
+                })
+                let managerId = this.state.manager.userId;
+                this.state.users.forEach((user) => {
+                    if (user.id === managerId) {
+                        this.state.manager = user;
+                    }
+                })
+            }).catch(function (error) {
+            console.log(error);
+        })
     }
 
     render() {
@@ -54,12 +69,12 @@ class Profile extends Component {
                     </div>
                     <div className={"userTeam"}>
                         <label>Team: </label>
-                        <h3>Managers</h3>
+                        <h3>{this.state.team.name}</h3>
                         <hr/>
                     </div>
                     <div className={"userManager"}>
                         <label>Manager: </label>
-                        <h3>{this.state.manager ? this.state.manager.name : "-"}</h3>
+                        <h3>{this.state.manager ? this.state.manager.lastname + " " + this.state.manager.firstname: "-"}</h3>
                         <hr/>
                     </div>
                     <div className={"userSalary"}>

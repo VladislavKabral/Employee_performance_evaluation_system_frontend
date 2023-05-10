@@ -39,6 +39,16 @@
     width: 200px;
 }
 
-.completeFeedbackSendButton button, .completeFeedbackBackButton button {
+.completeFeedbackSendButton button, .completeFeedbackBackButton button, .feedbackBackButton button {
     width: 100px;
 }
+
+.feedbackBackButton {
+    position: relative;
+    top: 100px;
+    left: 500px;
+    margin-bottom: 50px;
+    width: 200px;
+}
+
+
