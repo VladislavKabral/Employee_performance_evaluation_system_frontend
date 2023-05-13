@@ -22,6 +22,7 @@ import CreateRequest from "./components/request/CreateRequest.jsx";
 import Requests from "./components/request/Requests.jsx";
 import CompleteFeedback from "./components/feedback/CompleteFeedback.jsx";
 import Feedback from "./components/feedback/Feedback.jsx";
+import Report from "./components/package/report/Report.jsx";
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
                 <Route path={"/requests"} element={<Requests/>}/>
                 <Route path={"/completeFeedback"} element={<CompleteFeedback/>}/>
                 <Route path={"/feedback"} element={<Feedback/>}/>
+                <Route path={"/report"} element={<Report/>}/>
             </Routes>
         </div>
     </div>

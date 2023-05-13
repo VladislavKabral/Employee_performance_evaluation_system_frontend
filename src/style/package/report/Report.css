@@ -1,0 +1,175 @@
+.report {
+    position: relative;
+    top: 50px;
+    width: 750px;
+    height: 525px;
+    left: 225px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.reportPackage h2, .reportEmployee h2 {
+    font-style: italic;
+}
+
+#reportPackageLabel {
+    position: relative;
+    top: 25px;
+    left: -250px;
+}
+
+#reportPackageName {
+    position: relative;
+    top: -20px;
+    left: 100px;
+}
+
+#reportEmployeeLabel {
+    position: relative;
+    top: -10px;
+    left: -240px;
+}
+
+#reportEmployeeName {
+    position: relative;
+    top: -55px;
+    left: -20px;
+}
+
+hr {
+    position: relative;
+    top: -50px;
+    border-width: 5px;
+    color: white;
+}
+
+h2, h3, h4 {
+    color: white;
+}
+
+#averageFeedbackMarkLabel {
+    position: relative;
+    top: -55px;
+    left: -155px;
+}
+
+#averageFeedbackMarkValue {
+    position: relative;
+    top: -92px;
+    left: 175px;
+}
+
+#bestAverageFeedbackMarkLabel {
+    position: relative;
+    top: -92px;
+    left: -112px;
+}
+
+#bestAverageFeedbackMarkValue {
+    position: relative;
+    top: -130px;
+    left: 175px;
+}
+
+#worstAverageFeedbackMarkLabel {
+    position: relative;
+    top: -128px;
+    left: -105px;
+}
+
+#worstAverageFeedbackMarkValue {
+    position: relative;
+    top: -165px;
+    left: 175px;
+}
+
+#bestSkillLabel {
+    position: relative;
+    top: -165px;
+    left: -232px;
+}
+
+#bestSkillName {
+    position: relative;
+    top: -205px;
+    left: 190px;
+}
+
+#worstSkillLabel {
+    position: relative;
+    top: -205px;
+    left: -223px;
+}
+
+#worstSkillName {
+    position: relative;
+    top: -245px;
+    left: 190px;
+}
+
+#bestFeedbackEmployeeLabel {
+    position: relative;
+    top: 255px;
+    left: -115px;
+}
+
+#bestFeedbackEmployeeName {
+    position: relative;
+    top: 215px;
+    left: 203px;
+}
+
+#worstFeedbackEmployeeLabel {
+    position: relative;
+    top: 215px;
+    left: -108px;
+}
+
+#worstFeedbackEmployeeName {
+    position: relative;
+    top: 175px;
+    left: 203px;
+}
+
+#allFeedbacksCompletedDelimiter {
+    position: relative;
+    top: -325px;
+}
+
+#allFeedbacksCompletedLabel {
+    position: relative;
+    top: 178px;
+    left: -142px;
+}
+
+#allFeedbacksCompletedName {
+    position: relative;
+    top: 140px;
+    left: 185px;
+}
+
+#reportBackButton {
+    position: relative;
+    width: 150px;
+    top: 190px;
+    left: -1px;
+}
+
+.allFeedbacksCompleted {
+    position: relative;
+    top: -500px;
+}
+
+.worstFeedbackEmployee {
+    position: relative;
+    top: -500px;
+}
+
+.bestFeedbackEmployee {
+    position: relative;
+    top: -500px;
+}
+
+.reportBack {
+    position: relative;
+    top: -500px;
+}

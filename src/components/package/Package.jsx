@@ -123,6 +123,12 @@ class Package extends Component {
                                     onClick={this.handleCreateRequestWindowOpen}>Create request</button>
                         </NavLink>
                     </div>
+                    <div className={"createReport"}>
+                        <NavLink to={"/report"}>
+                            <button id={"packageCreateReportButton"} type="button" className="btn btn-dark"
+                                    onClick={() => localStorage.setItem("packageId", this.state.package.id)}>Create report</button>
+                        </NavLink>
+                    </div>
                 </div>
             </div>
         )
