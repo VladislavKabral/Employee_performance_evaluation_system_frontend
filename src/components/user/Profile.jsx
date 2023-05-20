@@ -85,6 +85,9 @@ class Profile extends Component {
                     <NavLink to={"/requests"}>
                         <button id={"userRequestButton"} type="button" className="btn btn-dark">Requests</button>
                     </NavLink>
+                    <NavLink to={"/userStatistic"}>
+                        <button id={"userStatisticButton"} type="button" className="btn btn-dark">Statistic</button>
+                    </NavLink>
                 </div>
             </div>
         )

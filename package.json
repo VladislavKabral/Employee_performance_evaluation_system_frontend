@@ -9,15 +9,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@canvasjs/react-charts": "^1.0.0",
     "@mui/material": "^5.12.1",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.3.0",
     "jquery": "^3.6.4",
     "popper.js": "^1.16.1",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-minimal-pie-chart": "^8.4.0",
     "react-router": "^6.10.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "recharts": "^2.6.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

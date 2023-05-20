@@ -23,6 +23,8 @@ import Requests from "./components/request/Requests.jsx";
 import CompleteFeedback from "./components/feedback/CompleteFeedback.jsx";
 import Feedback from "./components/feedback/Feedback.jsx";
 import Report from "./components/package/report/Report.jsx";
+import UserStatistic from "./components/statistic/user/UserStatistic.jsx";
+import TeamStatistic from "./components/statistic/team/TeamStatistic.jsx";
 
 function App() {
 
@@ -53,6 +55,8 @@ function App() {
                 <Route path={"/completeFeedback"} element={<CompleteFeedback/>}/>
                 <Route path={"/feedback"} element={<Feedback/>}/>
                 <Route path={"/report"} element={<Report/>}/>
+                <Route path={"/userStatistic"} element={<UserStatistic/>}/>
+                <Route path={"/teamStatistic"} element={<TeamStatistic/>}/>
             </Routes>
         </div>
     </div>

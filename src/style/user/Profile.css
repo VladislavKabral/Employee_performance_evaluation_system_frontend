@@ -84,4 +84,11 @@
 #userRequestButton {
     position: relative;
     top: -150px;
+    left: -50px;
+}
+
+#userStatisticButton {
+    position: relative;
+    top: -150px;
+    left: 50px;
 }

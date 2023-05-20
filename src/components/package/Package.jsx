@@ -4,7 +4,6 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 class Package extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
