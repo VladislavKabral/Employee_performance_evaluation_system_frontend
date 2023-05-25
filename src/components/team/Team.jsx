@@ -124,6 +124,11 @@ class Team extends Component {
                         </Modal.Footer>
                     </Modal>
                     <br/>
+                    <div className={"teamStatisticButton"}>
+                        <NavLink to={"/teamStatistic"}>
+                            <button id={"teamStatisticButton"} type="button" className="btn btn-dark">Statistic</button>
+                        </NavLink>
+                    </div>
                     <div className={"button"}>
                         <NavLink to={"/teams"}>
                             <button id={"teamBackButton"} type="button" className="btn btn-dark">Back</button>

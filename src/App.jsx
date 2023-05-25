@@ -33,6 +33,7 @@ function App() {
       <Header/>
         <div className={"content"}>
             <Routes>
+                <Route path={"/"} element={<Profile/>}/>
                 <Route path={"/teams"} element={<Teams/>}/>
                 <Route path={"/skills"} element={<Skills/>}/>
                 <Route path={"/team"} element={<Team/>}/>

@@ -1,0 +1,28 @@
+.teamStatistic {
+    position: relative;
+    top: 125px;
+    background: rgba(0, 0, 0, 0.65);
+    height: 325px;
+    width: 700px;
+}
+
+.teamStatisticDiagram {
+    position: relative;
+    top: -200px;
+    left: 715px;
+    height: 325px;
+    width: 500px;
+}
+
+.teamStatisticBackButton {
+    position: relative;
+    top: -125px;
+}
+
+#teamStatisticBackButton {
+    width: 150px;
+}
+
+.stat {
+    height: 450px;
+}

@@ -82,16 +82,16 @@ class UserStatistic extends Component {
                 indexLabelFontSize: 16,
                 indexLabel: "{label} - {y}%",
                 dataPoints: [
-                    { y: percents[1], label: "1" },
-                    { y: percents[2], label: "2" },
-                    { y: percents[3], label: "3" },
-                    { y: percents[4], label: "4" },
-                    { y: percents[5], label: "5" },
-                    { y: percents[6], label: "6" },
-                    { y: percents[7], label: "7" },
-                    { y: percents[8], label: "8" },
-                    { y: percents[9], label: "9" },
-                    { y: percents[10], label: "10" }
+                    { y: percents[0], label: "1" },
+                    { y: percents[1], label: "2" },
+                    { y: percents[2], label: "3" },
+                    { y: percents[3], label: "4" },
+                    { y: percents[4], label: "5" },
+                    { y: percents[5], label: "6" },
+                    { y: percents[6], label: "7" },
+                    { y: percents[7], label: "8" },
+                    { y: percents[8], label: "9" },
+                    { y: percents[9], label: "10" }
                 ]
             }]
         }
