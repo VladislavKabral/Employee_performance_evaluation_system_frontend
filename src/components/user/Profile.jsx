@@ -17,7 +17,11 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/users/${localStorage.getItem("userId")}`)
+        fetch(`http://localhost:8080/users/${localStorage.getItem("currentUserId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -31,7 +35,11 @@ class Profile extends Component {
             console.log(error);
         })
 
-        fetch(`http://localhost:8080/users`)
+        fetch(`http://localhost:8080/users`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({

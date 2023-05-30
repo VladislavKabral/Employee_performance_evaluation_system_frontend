@@ -25,6 +25,7 @@ import Feedback from "./components/feedback/Feedback.jsx";
 import Report from "./components/package/report/Report.jsx";
 import UserStatistic from "./components/statistic/user/UserStatistic.jsx";
 import TeamStatistic from "./components/statistic/team/TeamStatistic.jsx";
+import Authentication from "./components/auth/Authentication.jsx";
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
       <Header/>
         <div className={"content"}>
             <Routes>
-                <Route path={"/"} element={<Profile/>}/>
+                <Route path={"/"} element={<Authentication/>}/>
                 <Route path={"/teams"} element={<Teams/>}/>
                 <Route path={"/skills"} element={<Skills/>}/>
                 <Route path={"/team"} element={<Team/>}/>

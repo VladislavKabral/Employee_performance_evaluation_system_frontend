@@ -1,0 +1,42 @@
+.authentication {
+    position: relative;
+    height: 400px;
+    width: 500px;
+    top: 100px;
+    left: 350px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.authentication h3 {
+    position: relative;
+    top: 25px;
+    font-family: monospace;
+}
+
+.authenticationEmail {
+    position: relative;
+    width: 350px;
+    left: 75px;
+    top: 75px;
+}
+
+.authenticationPassword {
+    position: relative;
+    width: 350px;
+    left: 75px;
+    top: 90px;
+}
+
+.registrationLink {
+    position: relative;
+    top: 100px;
+}
+
+.authenticationSignIn {
+    position: relative;
+    top: 160px;
+}
+
+#authenticationSignInButton {
+    width: 150px;
+}
