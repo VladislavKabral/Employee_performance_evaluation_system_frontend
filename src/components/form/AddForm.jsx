@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import '../../style/form/Form.css'
+import Header from "../header/Header.jsx";
 
 class AddForm extends Component {
 
@@ -146,6 +147,7 @@ class AddForm extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>Creation new form</h1>
                 </div>

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import '../../style/feedback/Feedback.css'
 import {NavLink} from "react-router-dom";
+import Header from "../header/Header.jsx";
 
 class CompleteFeedback extends Component {
 
@@ -107,6 +108,7 @@ class CompleteFeedback extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h2>{this.state.form.name}</h2>
                 </div>

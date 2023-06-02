@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Header from "../header/Header.jsx";
 
 class Form extends Component {
 
@@ -75,6 +76,7 @@ class Form extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>{this.state.form.name}</h1>
 

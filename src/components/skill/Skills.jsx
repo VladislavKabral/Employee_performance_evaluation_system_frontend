@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import Header from "../header/Header.jsx";
 
 class Skills extends Component {
 
@@ -44,25 +45,28 @@ class Skills extends Component {
             this.processSkill(this.state.skills.indexOf(skill) + 1, skill)));
 
         return (
-            <div className={"skills"}>
-                <div className={"table"}>
-                    <table className="table table-bordered table-dark">
-                        <thead>
-                        <tr>
-                            <th scope="col">№</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Description</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {processedSkills}
-                        </tbody>
-                    </table>
-                </div>
-                <div className={"button"}>
-                    <NavLink to={"/addSkill"}>
-                        <button id={"skillsCreateNewSkillButton"} type="button" className="btn btn-dark">Create new skill</button>
-                    </NavLink>
+            <div>
+                <Header/>
+                <div className={"skills"}>
+                    <div className={"table"}>
+                        <table className="table table-bordered table-dark">
+                            <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {processedSkills}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className={"button"}>
+                        <NavLink to={"/addSkill"}>
+                            <button id={"skillsCreateNewSkillButton"} type="button" className="btn btn-dark">Create new skill</button>
+                        </NavLink>
+                    </div>
                 </div>
             </div>
         )

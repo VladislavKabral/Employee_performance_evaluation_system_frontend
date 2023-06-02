@@ -26,12 +26,12 @@ import Report from "./components/package/report/Report.jsx";
 import UserStatistic from "./components/statistic/user/UserStatistic.jsx";
 import TeamStatistic from "./components/statistic/team/TeamStatistic.jsx";
 import Authentication from "./components/auth/Authentication.jsx";
+import ManagerEmployees from "./components/user/manager/ManagerEmployees.jsx";
 
 function App() {
 
   return (
     <div>
-      <Header/>
         <div className={"content"}>
             <Routes>
                 <Route path={"/"} element={<Authentication/>}/>
@@ -59,6 +59,7 @@ function App() {
                 <Route path={"/report"} element={<Report/>}/>
                 <Route path={"/userStatistic"} element={<UserStatistic/>}/>
                 <Route path={"/teamStatistic"} element={<TeamStatistic/>}/>
+                <Route path={"/employees"} element={<ManagerEmployees/>}/>
             </Routes>
         </div>
     </div>

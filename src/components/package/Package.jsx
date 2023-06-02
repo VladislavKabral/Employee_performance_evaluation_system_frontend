@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Header from "../header/Header.jsx";
 
 class Package extends Component {
     constructor(props) {
@@ -66,6 +67,7 @@ class Package extends Component {
     render() {
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>Feedback package</h1>
 

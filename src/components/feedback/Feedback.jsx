@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import Header from "../header/Header.jsx";
 
 class Feedback extends Component {
 
@@ -60,6 +61,7 @@ class Feedback extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h2>{this.state.form.name}</h2>
                 </div>

@@ -1,6 +1,7 @@
 import '../../style/team/Team.css'
 import {NavLink} from "react-router-dom";
 import React, {Component} from "react";
+import Header from "../header/Header.jsx";
 class AddTeam extends Component {
 
     constructor(props) {
@@ -83,6 +84,7 @@ class AddTeam extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>Creation new team</h1>
                 </div>

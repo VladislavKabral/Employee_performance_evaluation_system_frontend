@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import Header from "../header/Header.jsx";
 
 class Requests extends Component {
 
@@ -76,6 +77,7 @@ class Requests extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h2>Requests</h2>
                 </div>

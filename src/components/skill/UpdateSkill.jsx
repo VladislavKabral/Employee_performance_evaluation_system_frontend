@@ -1,6 +1,7 @@
 import {Component} from "react";
 import {NavLink} from "react-router-dom";
 import '../../style/skill/Skill.css';
+import Header from "../header/Header.jsx";
 
 class UpdateSkill extends Component {
 
@@ -41,6 +42,7 @@ class UpdateSkill extends Component {
     render() {
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>Updating skill</h1>
                 </div>

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import '../../style/package/Package.css'
+import Header from "../header/Header.jsx";
 
 class AddPackage extends Component {
 
@@ -103,6 +104,7 @@ class AddPackage extends Component {
     render() {
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>Creation new package</h1>
                 </div>

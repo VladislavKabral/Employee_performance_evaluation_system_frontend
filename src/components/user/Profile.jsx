@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import '../../style/user/Profile.css';
 import {NavLink} from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import Header from "../header/Header.jsx";
 
 class Profile extends Component {
 
@@ -12,7 +15,8 @@ class Profile extends Component {
             salary: {},
             team: {},
             manager: {},
-            users: []
+            users: [],
+            isModal: false
         }
     }
 
@@ -56,46 +60,69 @@ class Profile extends Component {
         })
     }
 
+    handleLogOut = () => {
+        localStorage.setItem("jwtToken", null);
+        localStorage.setItem("currentUserRole", null);
+        localStorage.setItem("currentUserId", null);
+        window.location.assign("/");
+    }
+
     render() {
         return (
-            <div className={"user"}>
-                <div className={"userFullName"}>
-                    <img id={"userAvatar"} src={"./src/assets/emptyAvatar.jpg"} alt={"Avatar"}/>
-                    <h2>{this.state.user.lastname}</h2>
-                    <h2>{this.state.user.firstname}</h2>
-                </div>
-                <div className={"userInfo"}>
-                    <div className={"userPosition"}>
-                        <label>Position: </label>
-                        <h3>{this.state.position.name}</h3>
-                        <hr/>
+            <div>
+                <Header/>
+                <div className={"user"}>
+                    <div className={"userFullName"}>
+                        <img id={"userAvatar"} src={"./src/assets/emptyAvatar.jpg"} alt={"Avatar"}/>
+                        <h2>{this.state.user.lastname}</h2>
+                        <h2>{this.state.user.firstname}</h2>
                     </div>
-                    <div className={"userEmail"}>
-                        <label>Email: </label>
-                        <h3>{this.state.user.email}</h3>
-                        <hr/>
+                    <div className={"userInfo"}>
+                        <div className={"userPosition"}>
+                            <label>Position: </label>
+                            <h3>{this.state.position.name}</h3>
+                            <hr/>
+                        </div>
+                        <div className={"userEmail"}>
+                            <label>Email: </label>
+                            <h3>{this.state.user.email}</h3>
+                            <hr/>
+                        </div>
+                        <div className={"userTeam"}>
+                            <label>Team: </label>
+                            <h3>{this.state.team.name}</h3>
+                            <hr/>
+                        </div>
+                        <div className={"userManager"}>
+                            <label>Manager: </label>
+                            <h3>{this.state.manager ? this.state.manager.lastname + " " + this.state.manager.firstname: "-"}</h3>
+                            <hr/>
+                        </div>
+                        <div className={"userSalary"}>
+                            <label>Salary: </label>
+                            <h3>{this.state.salary.value + "$"}</h3>
+                            <hr/>
+                        </div>
+                        <NavLink to={"/requests"}>
+                            <button id={"userRequestButton"} type="button" className="btn btn-dark">Requests</button>
+                        </NavLink>
+                        <button id={"logOutButton"} type="button" className="btn btn-dark"
+                                onClick={() => this.setState({isModal: true})}>Log out</button>
                     </div>
-                    <div className={"userTeam"}>
-                        <label>Team: </label>
-                        <h3>{this.state.team.name}</h3>
-                        <hr/>
-                    </div>
-                    <div className={"userManager"}>
-                        <label>Manager: </label>
-                        <h3>{this.state.manager ? this.state.manager.lastname + " " + this.state.manager.firstname: "-"}</h3>
-                        <hr/>
-                    </div>
-                    <div className={"userSalary"}>
-                        <label>Salary: </label>
-                        <h3>{this.state.salary.value + "$"}</h3>
-                        <hr/>
-                    </div>
-                    <NavLink to={"/requests"}>
-                        <button id={"userRequestButton"} type="button" className="btn btn-dark">Requests</button>
-                    </NavLink>
-                    <NavLink to={"/userStatistic"}>
-                        <button id={"userStatisticButton"} type="button" className="btn btn-dark">Statistic</button>
-                    </NavLink>
+                    <Modal show={this.state.isModal} onHide={() => this.setState({isModal: false})}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Warning!</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>Do you really want to quit from the system?</Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={() => this.handleLogOut()}>
+                                Yes
+                            </Button>
+                            <Button variant="secondary" onClick={() => this.setState({isModal: false})}>
+                                Close
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
             </div>
         )

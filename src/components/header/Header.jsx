@@ -5,7 +5,7 @@ function Header() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className={"container-fluid"}>
-                <a className="navbar-brand" href="#">Employee system</a>
+                <a className="navbar-brand" href="../profile">Employee system</a>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
                         <li><NavLink className="nav-item nav-link" to={"/profile"}>Profile</NavLink></li>

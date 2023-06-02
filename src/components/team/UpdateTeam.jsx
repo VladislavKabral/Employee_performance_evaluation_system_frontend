@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import Header from "../header/Header.jsx";
 
 class UpdateTeam extends Component {
 
@@ -99,6 +100,7 @@ class UpdateTeam extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>Updating team</h1>
                 </div>

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import Header from "../header/Header.jsx";
 
 class Forms extends Component {
     constructor(props) {
@@ -40,24 +41,27 @@ class Forms extends Component {
             this.processForm(this.state.forms.indexOf(form) + 1, form)));
 
         return (
-            <div className={"forms"}>
-                <div className={"table"}>
-                    <table className="table table-bordered table-dark">
-                        <thead>
-                        <tr>
-                            <th scope="col">№</th>
-                            <th scope="col">Name</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {processedForms}
-                        </tbody>
-                    </table>
-                </div>
-                <div className={"button"}>
-                    <NavLink to={"/addForm"}>
-                        <button id={"formsCreateNewFormButton"} type="button" className="btn btn-dark">Create new form</button>
-                    </NavLink>
+            <div>
+                <Header/>
+                <div className={"forms"}>
+                    <div className={"table"}>
+                        <table className="table table-bordered table-dark">
+                            <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {processedForms}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className={"button"}>
+                        <NavLink to={"/addForm"}>
+                            <button id={"formsCreateNewFormButton"} type="button" className="btn btn-dark">Create new form</button>
+                        </NavLink>
+                    </div>
                 </div>
             </div>
         )

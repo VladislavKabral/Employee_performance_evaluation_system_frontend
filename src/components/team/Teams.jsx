@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import '../../style/team/Team.css';
 import {NavLink} from "react-router-dom";
+import Header from "../header/Header.jsx";
 
 class Teams extends Component {
 
@@ -43,27 +44,29 @@ class Teams extends Component {
             this.processTeam(this.state.teams.indexOf(team) + 1, team)));
 
         return (
-            <div className={"teams"}>
-                <div className={"table"}>
-                    <table className="table table-bordered table-dark">
-                        <thead>
-                        <tr>
-                            <th scope="col">№</th>
-                            <th scope="col">Name</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {processedTeams}
-                        </tbody>
-                    </table>
-                </div>
-                <div className={"button"}>
-                    <NavLink to={"/addTeam"}>
-                        <button id={"teamsCreateNewTeamButton"} type="button" className="btn btn-dark">Create new team</button>
-                    </NavLink>
+            <div>
+                <Header/>
+                <div className={"teams"}>
+                    <div className={"table"}>
+                        <table className="table table-bordered table-dark">
+                            <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {processedTeams}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className={"button"}>
+                        <NavLink to={"/addTeam"}>
+                            <button id={"teamsCreateNewTeamButton"} type="button" className="btn btn-dark">Create new team</button>
+                        </NavLink>
+                    </div>
                 </div>
             </div>
-
         )
     }
 

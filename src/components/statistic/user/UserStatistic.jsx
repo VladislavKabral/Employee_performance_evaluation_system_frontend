@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import '../../../style/statistic/user/UserStatistic.css'
 import CanvasJSReact from '@canvasjs/react-charts';
+import Header from "../../header/Header.jsx";
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -97,44 +98,47 @@ class UserStatistic extends Component {
         }
 
         return (
-            <div className={"userStatistic"}>
-                <div className={"userStatisticFullName"}>
-                    <img id={"userAvatar"} src={"./src/assets/emptyAvatar.jpg"} alt={"Avatar"}/>
-                    <h2>{this.state.user.lastname}</h2>
-                    <h2>{this.state.user.firstname}</h2>
-                </div>
-                <div className={"statistic"}>
-                    <div className={"statisticAverageFeedbackMark"}>
-                        <h4 id={"averageFeedbackMarkLabel"}>Average mark for feedback: </h4>
-                        <h3 id={"averageFeedbackMarkValue"}>{averageFeedbackMark}</h3>
+            <div>
+                <Header/>
+                <div className={"userStatistic"}>
+                    <div className={"userStatisticFullName"}>
+                        <img id={"userAvatar"} src={"./src/assets/emptyAvatar.jpg"} alt={"Avatar"}/>
+                        <h2>{this.state.user.lastname}</h2>
+                        <h2>{this.state.user.firstname}</h2>
                     </div>
-                    <div className={"statisticBestAverageFeedbackMark"}>
-                        <h4 id={"bestAverageFeedbackMarkLabel"}>Average mark of the best feedback: </h4>
-                        <h3 id={"bestAverageFeedbackMarkValue"}>{bestAverageFeedbackMark}</h3>
+                    <div className={"statistic"}>
+                        <div className={"statisticAverageFeedbackMark"}>
+                            <h4 id={"averageFeedbackMarkLabel"}>Average mark for feedback: </h4>
+                            <h3 id={"averageFeedbackMarkValue"}>{averageFeedbackMark}</h3>
+                        </div>
+                        <div className={"statisticBestAverageFeedbackMark"}>
+                            <h4 id={"bestAverageFeedbackMarkLabel"}>Average mark of the best feedback: </h4>
+                            <h3 id={"bestAverageFeedbackMarkValue"}>{bestAverageFeedbackMark}</h3>
+                        </div>
+                        <div className={"statisticWorstAverageFeedbackMark"}>
+                            <h4 id={"worstAverageFeedbackMarkLabel"}>Average mark of the worst feedback: </h4>
+                            <h3 id={"worstAverageFeedbackMarkValue"}>{worstAverageFeedbackMark}</h3>
+                        </div>
+                        <div className={"statisticBestSkill"}>
+                            <h4 id={"bestSkillLabel"}>The best skill: </h4>
+                            <h3 id={"bestSkillName"}>{this.state.bestSkill.name}</h3>
+                        </div>
+                        <div className={"statisticWorstSkill"}>
+                            <h4 id={"worstSkillLabel"}>The worst skill: </h4>
+                            <h3 id={"worstSkillName"}>{this.state.worstSkill.name}</h3>
+                        </div>
+                        <div className={"statisticBestFeedbackEmployee"}>
+                            <h4 id={"bestFeedbackEmployeeLabel"}>The employee, who rated the best: </h4>
+                            <h3 id={"bestFeedbackEmployeeName"}>{this.state.bestEmployee.lastname}</h3>
+                        </div>
+                        <div className={"statisticWorstFeedbackEmployee"}>
+                            <h4 id={"worstFeedbackEmployeeLabel"}>The employee, who rated the worst: </h4>
+                            <h3 id={"worstFeedbackEmployeeName"}>{this.state.worstEmployee.lastname}</h3>
+                        </div>
                     </div>
-                    <div className={"statisticWorstAverageFeedbackMark"}>
-                        <h4 id={"worstAverageFeedbackMarkLabel"}>Average mark of the worst feedback: </h4>
-                        <h3 id={"worstAverageFeedbackMarkValue"}>{worstAverageFeedbackMark}</h3>
+                    <div className={"statisticDiagram"}>
+                        <CanvasJSChart options = {options}/>
                     </div>
-                    <div className={"statisticBestSkill"}>
-                        <h4 id={"bestSkillLabel"}>The best skill: </h4>
-                        <h3 id={"bestSkillName"}>{this.state.bestSkill.name}</h3>
-                    </div>
-                    <div className={"statisticWorstSkill"}>
-                        <h4 id={"worstSkillLabel"}>The worst skill: </h4>
-                        <h3 id={"worstSkillName"}>{this.state.worstSkill.name}</h3>
-                    </div>
-                    <div className={"statisticBestFeedbackEmployee"}>
-                        <h4 id={"bestFeedbackEmployeeLabel"}>The employee, who rated the best: </h4>
-                        <h3 id={"bestFeedbackEmployeeName"}>{this.state.bestEmployee.lastname}</h3>
-                    </div>
-                    <div className={"statisticWorstFeedbackEmployee"}>
-                        <h4 id={"worstFeedbackEmployeeLabel"}>The employee, who rated the worst: </h4>
-                        <h3 id={"worstFeedbackEmployeeName"}>{this.state.worstEmployee.lastname}</h3>
-                    </div>
-                </div>
-                <div className={"statisticDiagram"}>
-                    <CanvasJSChart options = {options}/>
                 </div>
             </div>
         )

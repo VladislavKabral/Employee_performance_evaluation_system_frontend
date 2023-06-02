@@ -3,6 +3,7 @@ import '../../style/team/Team.css'
 import {NavLink} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Header from "../header/Header.jsx";
 
 class Team extends Component {
 
@@ -85,6 +86,7 @@ class Team extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>{this.state.team.name}</h1>
 

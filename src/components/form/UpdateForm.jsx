@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import Header from "../header/Header.jsx";
 
 class UpdateForm extends Component {
 
@@ -152,6 +153,7 @@ class UpdateForm extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>Updating the form</h1>
                 </div>

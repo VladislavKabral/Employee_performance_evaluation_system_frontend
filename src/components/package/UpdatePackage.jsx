@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import Header from "../header/Header.jsx";
 
 class UpdatePackage extends Component {
     constructor(props) {
@@ -127,6 +128,7 @@ class UpdatePackage extends Component {
     render() {
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h1>Updating the package</h1>
                 </div>

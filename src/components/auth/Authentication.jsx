@@ -1,11 +1,14 @@
 import '../../style/auth/Authentication.css'
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 const Authentication = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isModal, setIsModal] = useState(false);
 
     function sendRequest() {
         const reqBody = {
@@ -40,8 +43,8 @@ const Authentication = () => {
                 localStorage.setItem("currentUserRole", data[0].userRole);
                 localStorage.setItem("currentUserId", data[0].userId);
                 window.location.assign("/profile");
-            }).catch((message) => {
-                alert(message);
+            }).catch(() => {
+                setIsModal(true);
         });
     }
 
@@ -63,6 +66,17 @@ const Authentication = () => {
                 <button id={"authenticationSignInButton"} type="button" className="btn btn-dark"
                         onClick={() => sendRequest()}>SIGN IN</button>
             </div>
+            <Modal show={isModal} onHide={() => setIsModal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Warning!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Invalid login or password.</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setIsModal(false)}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }

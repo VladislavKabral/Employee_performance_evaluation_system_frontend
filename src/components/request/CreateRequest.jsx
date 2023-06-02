@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import '../../style/request/Request.css'
+import Header from "../header/Header.jsx";
 
 class CreateRequest extends Component {
 
@@ -82,6 +83,7 @@ class CreateRequest extends Component {
 
         return (
             <div>
+                <Header/>
                 <div className={"text"}>
                     <h2>Creation requests for {localStorage.getItem("packageName")}</h2>
                 </div>
