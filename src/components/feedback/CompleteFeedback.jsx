@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom";
 import Header from "../header/Header.jsx";
 
 class CompleteFeedback extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -18,7 +17,11 @@ class CompleteFeedback extends Component {
         const feedbackPackage = JSON.parse(localStorage.getItem(`request${requestId}`));
         const formId = feedbackPackage.form.id;
 
-        fetch(`http://localhost:8080/forms/${formId}`)
+        fetch(`http://localhost:8080/forms/${formId}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -56,7 +59,8 @@ class CompleteFeedback extends Component {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
                 },
                 body: JSON.stringify({responses: responses}, function(key, value) {
                     if (typeof value === 'object' && value !== null) {

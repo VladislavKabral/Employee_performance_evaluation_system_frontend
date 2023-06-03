@@ -21,7 +21,11 @@ class TeamStatistic extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/teams/${localStorage.getItem("teamId")}`)
+        fetch(`http://localhost:8080/teams/${localStorage.getItem("teamId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -31,7 +35,11 @@ class TeamStatistic extends Component {
             console.log(error);
         })
 
-        fetch(`http://localhost:8080/teams/${localStorage.getItem("teamId")}/statistic`)
+        fetch(`http://localhost:8080/teams/${localStorage.getItem("teamId")}/statistic`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 localStorage.setItem("marks", JSON.stringify(data.distributionOfMarks));

@@ -11,7 +11,11 @@ class ManagerEmployees extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/users/manager/${localStorage.getItem("currentUserId")}/users`)
+        fetch(`http://localhost:8080/users/manager/${localStorage.getItem("currentUserId")}/users`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({

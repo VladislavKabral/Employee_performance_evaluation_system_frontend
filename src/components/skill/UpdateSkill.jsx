@@ -22,7 +22,8 @@ class UpdateSkill extends Component {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
                 },
                 body: JSON.stringify({name: name, description: description}, function(key, value) {
                     if (typeof value === 'object' && value !== null) {

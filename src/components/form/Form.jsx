@@ -16,7 +16,11 @@ class Form extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/forms/${localStorage.getItem("formId")}`)
+        fetch(`http://localhost:8080/forms/${localStorage.getItem("formId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -33,7 +37,8 @@ class Form extends Component {
         await fetch(`http://localhost:8080/forms/${formId}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
             }
         });
 

@@ -13,7 +13,11 @@ class Teams extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/teams')
+        fetch('http://localhost:8080/teams', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({

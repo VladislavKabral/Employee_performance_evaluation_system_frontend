@@ -13,7 +13,11 @@ class UpdateTeam extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/users')
+        fetch('http://localhost:8080/users', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -22,7 +26,11 @@ class UpdateTeam extends Component {
             }).catch(function (error) {
             console.log(error);
         })
-        fetch(`http://localhost:8080/teams/${localStorage.getItem("teamId")}`)
+        fetch(`http://localhost:8080/teams/${localStorage.getItem("teamId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -51,7 +59,8 @@ class UpdateTeam extends Component {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
                 },
                 body: JSON.stringify({name: name, users: chosenUsers}, function(key, value) {
                     if (typeof value === 'object' && value !== null) {

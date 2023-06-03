@@ -16,7 +16,11 @@ class Package extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/packages/${localStorage.getItem("packageId")}`)
+        fetch(`http://localhost:8080/packages/${localStorage.getItem("packageId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -33,7 +37,8 @@ class Package extends Component {
         await fetch(`http://localhost:8080/packages/${packageId}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
             }
         });
 

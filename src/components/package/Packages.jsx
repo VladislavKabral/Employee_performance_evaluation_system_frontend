@@ -12,7 +12,11 @@ class Packages extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/packages')
+        fetch('http://localhost:8080/packages', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({

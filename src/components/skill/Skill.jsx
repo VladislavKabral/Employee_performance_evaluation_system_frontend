@@ -15,7 +15,11 @@ class Skill extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/skills/${localStorage.getItem("skillId")}`)
+        fetch(`http://localhost:8080/skills/${localStorage.getItem("skillId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -30,7 +34,8 @@ class Skill extends Component {
         await fetch(`http://localhost:8080/skills/${skillId}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
             }
         });
 

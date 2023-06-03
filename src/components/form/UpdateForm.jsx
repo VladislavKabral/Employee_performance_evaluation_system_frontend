@@ -15,7 +15,11 @@ class UpdateForm extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/skills')
+        fetch('http://localhost:8080/skills', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -55,7 +59,8 @@ class UpdateForm extends Component {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
                 },
                 body: JSON.stringify({name: name, questions: questions}, function(key, value) {
                     if (typeof value === 'object' && value !== null) {

@@ -13,14 +13,22 @@ class Requests extends Component {
     }
 
     componentDidMount() {
-         fetch(`http://localhost:8080/feedbacks/user/${localStorage.getItem("userId")}`)
+         fetch(`http://localhost:8080/feedbacks/user/${localStorage.getItem("userId")}`, {
+             headers: {
+                 'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+             }
+         })
             .then(response => response.json())
             .then(data => {
                 this.setState({
                     requests: data
                 })
                 this.state.requests.forEach((request) => {
-                    fetch(`http://localhost:8080/packages/${request.feedbackPackage.id}`)
+                    fetch(`http://localhost:8080/packages/${request.feedbackPackage.id}`, {
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+                        }
+                    })
                         .then(response => response.json())
                         .then(data => {
                             this.state.packages.push(data);

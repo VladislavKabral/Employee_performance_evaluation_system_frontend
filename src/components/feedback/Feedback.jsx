@@ -15,7 +15,11 @@ class Feedback extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/feedbacks/${localStorage.getItem("requestId")}`)
+        fetch(`http://localhost:8080/feedbacks/${localStorage.getItem("requestId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -30,7 +34,11 @@ class Feedback extends Component {
         const feedbackPackage = JSON.parse(localStorage.getItem(`request${requestId}`));
         const formId = feedbackPackage.form.id;
 
-        fetch(`http://localhost:8080/forms/${formId}`)
+        fetch(`http://localhost:8080/forms/${formId}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({

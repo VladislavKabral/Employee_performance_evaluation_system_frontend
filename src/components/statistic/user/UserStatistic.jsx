@@ -21,7 +21,11 @@ class UserStatistic extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/users/${localStorage.getItem("userId")}`)
+        fetch(`http://localhost:8080/users/${localStorage.getItem("currentUserId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -31,7 +35,11 @@ class UserStatistic extends Component {
             console.log(error);
         })
 
-        fetch(`http://localhost:8080/users/${localStorage.getItem("userId")}/statistic`)
+        fetch(`http://localhost:8080/users/${localStorage.getItem("currentUserId")}/statistic`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 localStorage.setItem("marks", JSON.stringify(data.distributionOfMarks));
@@ -52,6 +60,7 @@ class UserStatistic extends Component {
     }
 
     render() {
+        console.log(localStorage.getItem("marks"));
         const averageFeedbackMark = localStorage.getItem("averageFeedbackMark");
         const bestAverageFeedbackMark = localStorage.getItem("bestAverageFeedbackMark");
         const worstAverageFeedbackMark = localStorage.getItem("worstAverageFeedbackMark");

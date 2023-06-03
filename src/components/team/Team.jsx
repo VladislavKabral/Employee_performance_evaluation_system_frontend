@@ -17,7 +17,11 @@ class Team extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/teams/${localStorage.getItem("teamId")}`)
+        fetch(`http://localhost:8080/teams/${localStorage.getItem("teamId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -50,7 +54,8 @@ class Team extends Component {
         await fetch(`http://localhost:8080/teams/${teamId}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
             }
         });
 

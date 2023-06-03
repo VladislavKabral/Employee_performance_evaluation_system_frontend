@@ -14,7 +14,11 @@ class AddPackage extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/forms')
+        fetch('http://localhost:8080/forms', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -24,7 +28,11 @@ class AddPackage extends Component {
             console.log(error);
         })
 
-        fetch('http://localhost:8080/users')
+        fetch('http://localhost:8080/users', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -62,7 +70,8 @@ class AddPackage extends Component {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
                 },
                 body: JSON.stringify({name: name, isPublic: isPublic.checked, form: form, targetUser: user}, function(key, value) {
                     if (typeof value === 'object' && value !== null) {

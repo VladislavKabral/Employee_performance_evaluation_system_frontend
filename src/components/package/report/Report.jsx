@@ -19,7 +19,11 @@ class Report extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/packages/${localStorage.getItem("packageId")}`)
+        fetch(`http://localhost:8080/packages/${localStorage.getItem("packageId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -30,7 +34,11 @@ class Report extends Component {
             console.log(error);
         })
 
-        fetch(`http://localhost:8080/report/${localStorage.getItem("packageId")}`)
+        fetch(`http://localhost:8080/report/${localStorage.getItem("packageId")}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
