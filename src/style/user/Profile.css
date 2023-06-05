@@ -94,3 +94,9 @@
     left: 50px;
     width: 100px;
 }
+
+#employeeStatisticButton {
+    position: relative;
+    top: -150px;
+    width: 150px;
+}

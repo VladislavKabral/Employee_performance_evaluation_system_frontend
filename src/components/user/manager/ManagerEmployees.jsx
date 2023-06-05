@@ -1,4 +1,7 @@
-import {Component} from "react";
+import React, {Component} from "react";
+import {NavLink} from "react-router-dom";
+import Header from "../../header/Header.jsx";
+import Footer from "../../footer/Footer.jsx";
 
 class ManagerEmployees extends Component {
 
@@ -21,16 +24,48 @@ class ManagerEmployees extends Component {
                 this.setState({
                     users: data
                 })
-                console.log(data)
             }).catch(function (error) {
             console.log(error);
         })
     }
 
+    processUsers(index, user) {
+        let userFullName = user.lastname + ' ' + user.firstname;
+        return (
+            <>
+                <tr>
+                    <td>{index}</td>
+                    <td>
+                        <NavLink className={"nav-link"} to={"/employeeProfile"} onClick={() => this.handleOpenProfileWindow(user)}>
+                            {userFullName}
+                        </NavLink>
+                    </td>
+                </tr>
+            </>
+        )
+    }
+
     render() {
+        const processedUsers = React.Children.toArray(this.state.users.map((user) =>
+            this.processUsers(this.state.users.indexOf(user) + 1, user)));
+
         return (
             <div>
-
+                <Header/>
+                <div className={"employees"}>
+                    <table className="table table-bordered table-dark">
+                        <thead>
+                        <tr>
+                            <th scope="col">№</th>
+                            <th scope="col">Employee</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {processedUsers}
+                        </tbody>
+                    </table>
+                </div>
+                <Footer/>
             </div>
         )
     }

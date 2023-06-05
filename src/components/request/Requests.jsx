@@ -13,7 +13,7 @@ class Requests extends Component {
     }
 
     componentDidMount() {
-         fetch(`http://localhost:8080/feedbacks/user/${localStorage.getItem("userId")}`, {
+         fetch(`http://localhost:8080/feedbacks/user/${localStorage.getItem("currentUserId")}`, {
              headers: {
                  'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
              }

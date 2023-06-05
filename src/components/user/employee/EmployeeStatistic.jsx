@@ -5,7 +5,7 @@ import Header from "../../header/Header.jsx";
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-class UserStatistic extends Component {
+class EmployeeStatistic extends Component {
 
     constructor(props) {
         super(props);
@@ -21,7 +21,7 @@ class UserStatistic extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/users/${localStorage.getItem("currentUserId")}`, {
+        fetch(`http://localhost:8080/users/${localStorage.getItem("userId")}`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
             }
@@ -35,7 +35,7 @@ class UserStatistic extends Component {
             console.log(error);
         })
 
-        fetch(`http://localhost:8080/users/${localStorage.getItem("currentUserId")}/statistic`, {
+        fetch(`http://localhost:8080/users/${localStorage.getItem("userId")}/statistic`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
             }
@@ -154,4 +154,4 @@ class UserStatistic extends Component {
     }
 }
 
-export default UserStatistic;
+export default EmployeeStatistic;

@@ -71,7 +71,7 @@ class AddTeam extends Component {
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink className={"nav-link"} to={"/profile"} onClick={() => localStorage.setItem("userId", user.id)}>
+                        <NavLink className={"nav-link"} to={"/employeeProfile"} onClick={() => localStorage.setItem("userId", user.id)}>
                             {userFullName}
                         </NavLink>
                     </td>

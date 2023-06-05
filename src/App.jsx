@@ -27,6 +27,9 @@ import UserStatistic from "./components/statistic/user/UserStatistic.jsx";
 import TeamStatistic from "./components/statistic/team/TeamStatistic.jsx";
 import Authentication from "./components/auth/Authentication.jsx";
 import ManagerEmployees from "./components/user/manager/ManagerEmployees.jsx";
+import EmployeeProfile from "./components/user/employee/EmployeeProfile.jsx";
+import EmployeeStatistic from "./components/user/employee/EmployeeStatistic.jsx";
+import Footer from "./components/footer/Footer.jsx";
 
 function App() {
 
@@ -60,6 +63,8 @@ function App() {
                 <Route path={"/userStatistic"} element={<UserStatistic/>}/>
                 <Route path={"/teamStatistic"} element={<TeamStatistic/>}/>
                 <Route path={"/employees"} element={<ManagerEmployees/>}/>
+                <Route path={"/employeeProfile"} element={<EmployeeProfile/>}/>
+                <Route path={"/employeeStatistic"} element={<EmployeeStatistic/>}/>
             </Routes>
         </div>
     </div>

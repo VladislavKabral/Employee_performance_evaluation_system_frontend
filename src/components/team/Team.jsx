@@ -41,7 +41,7 @@ class Team extends Component {
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink className={"nav-link"} to={"/profile"} onClick={() => this.handleOpenProfileWindow(user)}>
+                        <NavLink className={"nav-link"} to={"/employeeProfile"} onClick={() => this.handleOpenProfileWindow(user)}>
                             {userFullName}
                         </NavLink>
                     </td>
@@ -98,7 +98,7 @@ class Team extends Component {
                     <table className="table table-bordered table-dark">
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">№</th>
                             <th scope="col">Employee</th>
                         </tr>
                         </thead>
