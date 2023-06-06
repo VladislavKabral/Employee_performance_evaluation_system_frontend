@@ -55,21 +55,25 @@ table {
 #addTeamCreateButton {
     position: relative;
     top: 150px;
+    width: 150px;
 }
 
 #addTeamBackButton {
     position: relative;
     top: 150px;
+    width: 150px;
 }
 
 #updateTeamBackButton {
     position: relative;
     top: 150px;
+    width: 150px;
 }
 
 #updateTeamUpdateButton {
     position: relative;
     top: 150px;
+    width: 150px;
 }
 
 #teamStatisticButton {

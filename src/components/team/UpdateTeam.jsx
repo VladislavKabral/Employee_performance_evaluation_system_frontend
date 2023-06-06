@@ -131,11 +131,11 @@ class UpdateTeam extends Component {
                         </tbody>
                     </table>
                 </div>
-                <div className={"button"}>
+                <div className={"updateTeamUpdateButton"}>
                     <button id={"updateTeamUpdateButton"} type="button" className="btn btn-dark" onClick={() => this.updateTeam(this.state.users)}>Update</button>
                 </div>
                 <br/>
-                <div className={"button"}>
+                <div className={"updateTeamBackButton"}>
                     <NavLink to={"/teams"}>
                         <button id={"updateTeamBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>

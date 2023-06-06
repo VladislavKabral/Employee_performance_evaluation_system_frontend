@@ -55,11 +55,11 @@ class UpdateSkill extends Component {
                     <textarea id={"skillDescriptionInput"} placeholder="Skill description" className="form-control"
                               rows="5" defaultValue={localStorage.getItem("description")}></textarea>
                 </div>
-                <div className={"button"}>
+                <div className={"updateSkillUpdateButton"}>
                     <button id={"updateSkillUpdateButton"} type="button" className="btn btn-dark" onClick={this.updateSkill}>Update</button>
                 </div>
                 <br/>
-                <div className={"button"}>
+                <div className={"updateSkillBackButton"}>
                     <NavLink to={"/skills"}>
                         <button id={"updateSkillBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>

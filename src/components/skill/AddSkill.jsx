@@ -53,11 +53,11 @@ class AddSkill extends Component {
                 <div className={"skillDescriptionField"}>
                     <textarea id={"skillDescriptionInput"} placeholder="Skill description" className="form-control" rows="5"></textarea>
                 </div>
-                <div className={"button"}>
+                <div className={"addSkillBackButton"}>
                     <button id={"addSkillCreateButton"} type="button" className="btn btn-dark" onClick={this.createSkill}>Create</button>
                 </div>
                 <br/>
-                <div className={"button"}>
+                <div className={"addSkillBackButton"}>
                     <NavLink to={"/skills"}>
                         <button id={"addSkillBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>

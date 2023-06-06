@@ -110,12 +110,12 @@ class AddTeam extends Component {
                         </tbody>
                     </table>
                 </div>
-                <div className={"button"}>
+                <div className={"addTeamCreateButton"}>
                     <button id={"addTeamCreateButton"} type="button" className="btn btn-dark"
                             onClick={() => this.createTeam(this.state.users)}>Create</button>
                 </div>
                 <br/>
-                <div className={"button"}>
+                <div className={"addTeamBackButton"}>
                     <NavLink to={"/teams"}>
                         <button id={"addTeamBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>

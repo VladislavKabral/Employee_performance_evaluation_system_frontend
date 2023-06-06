@@ -31,48 +31,51 @@
 
 #addFormBackButton {
     position: relative;
-    top: 67px;
+    top: 83px;
     left: 105px;
-    width: 100px;
+    width: 150px;
 }
 
 #addFormCreateButton {
     position: relative;
     top: 120px;
     left: -105px;
+    width: 150px;
 }
 
 #updateFormBackButton {
     position: relative;
-    top: 67px;
+    top: 57px;
     left: 110px;
-    width: 100px;
+    width: 150px;
 }
 
 #updateFormUpdateButton {
     position: relative;
     top: 120px;
     left: -100px;
+    width: 150px;
 }
 
 #formBackButton {
     position: relative;
     top: -48px;
     left: 275px;
-    width: 100px;
+    width: 150px;
 }
 
 #formDeleteButton {
     position: relative;
     top: 29px;
     left: -10px;
-    width: 100px;
+    width: 150px;
 }
 
 #formUpdateButton {
     position: relative;
     top: 105px;
     left: -300px;
+    width: 150px;
 }
 
 .deleteField {
@@ -94,9 +97,11 @@
 #addFormAddQuestionButton {
     position: relative;
     top: 75px;
+    width: 150px;
 }
 
 #updateFormAddQuestionButton {
     position: relative;
     top: 100px;
+    width: 150px;
 }

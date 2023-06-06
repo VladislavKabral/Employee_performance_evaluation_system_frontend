@@ -53,14 +53,16 @@ textarea {
 
 #addSkillBackButton {
     position: relative;
-    top: 50px;
+    top: 65px;
     left: 125px;
+    width: 125px;
 }
 
 #addSkillCreateButton {
     position: relative;
     top: 126px;
     left: -115px;
+    width: 125px;
 }
 
 #skillUpdateButton {
@@ -91,9 +93,11 @@ textarea {
 #updateSkillBackButton {
     position: relative;
     top: 150px;
+    width: 150px;
 }
 
 #updateSkillUpdateButton {
     position: relative;
     top: 150px;
+    width: 150px;
 }

@@ -139,11 +139,11 @@ class AddPackage extends Component {
                         <input className="form-check-input" type="checkbox" value="" id={"isPublicInput"}/>
                     </div>
                 </div>
-                <div className={"button"}>
+                <div className={"addPackageCreateButton"}>
                     <button id={"addPackageCreateButton"} type="button" className="btn btn-dark"
                             onClick={() => this.createPackage()}>Create package</button>
                 </div>
-                <div className={"button"}>
+                <div className={"addPackageBackButton"}>
                     <NavLink to={"/packages"}>
                         <button id={"addPackageBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>

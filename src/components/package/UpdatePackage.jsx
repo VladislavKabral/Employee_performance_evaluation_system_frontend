@@ -170,11 +170,11 @@ class UpdatePackage extends Component {
                                defaultChecked={localStorage.getItem("packageIsPublic") === "true"}/>
                     </div>
                 </div>
-                <div className={"button"}>
+                <div className={"addPackageCreateButton"}>
                     <button id={"addPackageCreateButton"} type="button" className="btn btn-dark"
                             onClick={() => this.updatePackage()}>Update package</button>
                 </div>
-                <div className={"button"}>
+                <div className={"addPackageBackButton"}>
                     <NavLink to={"/package"}>
                         <button id={"addPackageBackButton"} type="button" className="btn btn-dark">Back</button>
                     </NavLink>
