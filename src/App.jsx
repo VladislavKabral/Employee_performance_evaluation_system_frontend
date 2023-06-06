@@ -1,6 +1,5 @@
 import './App.css'
 import {Route, Routes} from "react-router";
-import Header from "./components/header/Header.jsx";
 import Teams from "./components/team/Teams.jsx";
 import Skill from "./components/skill/Skill.jsx";
 import Form from "./components/form/Form.jsx";
@@ -29,7 +28,7 @@ import Authentication from "./components/auth/Authentication.jsx";
 import ManagerEmployees from "./components/user/manager/ManagerEmployees.jsx";
 import EmployeeProfile from "./components/user/employee/EmployeeProfile.jsx";
 import EmployeeStatistic from "./components/user/employee/EmployeeStatistic.jsx";
-import Footer from "./components/footer/Footer.jsx";
+import Registration from "./components/auth/Registration.jsx";
 
 function App() {
 
@@ -38,6 +37,7 @@ function App() {
         <div className={"content"}>
             <Routes>
                 <Route path={"/"} element={<Authentication/>}/>
+                <Route path={"/register"} element={<Registration/>}/>
                 <Route path={"/teams"} element={<Teams/>}/>
                 <Route path={"/skills"} element={<Skills/>}/>
                 <Route path={"/team"} element={<Team/>}/>

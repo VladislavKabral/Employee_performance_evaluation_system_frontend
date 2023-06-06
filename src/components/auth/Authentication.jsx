@@ -50,7 +50,7 @@ const Authentication = () => {
 
     return (
         <div className={"authentication"}>
-            <h3 >AUTHENTICATION</h3>
+            <h3>AUTHENTICATION</h3>
             <div className={"authenticationEmail"}>
                 <input id={"authenticationEmailInput"} type="text" className="form-control" placeholder="Email"
                        aria-label="Email" onChange={(event) => setEmail(event.target.value)}/>
