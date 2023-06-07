@@ -41,7 +41,8 @@ class Team extends Component {
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink className={"nav-link"} to={"/employeeProfile"} onClick={() => this.handleOpenProfileWindow(user)}>
+                        <NavLink className={"nav-link"} to={"/employeeProfile"}
+                                 onClick={() => this.handleOpenProfileWindow(user)}>
                             {userFullName}
                         </NavLink>
                     </td>
@@ -107,14 +108,20 @@ class Team extends Component {
                         </tbody>
                     </table>
 
-                    <div className={"button"}>
-                        <NavLink to={"/updateTeam"} onClick={this.handleOpenUpdateWindow}>
-                            <button id={"teamUpdateButton"} type="button" className="btn btn-dark">Update team</button>
-                        </NavLink>
+                    <div className={"teamUpdateButton"}>
+                        {localStorage.getItem("currentUserRole") === "DIRECTOR" &&
+                            <NavLink to={"/updateTeam"} onClick={this.handleOpenUpdateWindow}>
+                                <button id={"teamUpdateButton"} type="button" className="btn btn-dark">
+                                    Update team</button>
+                            </NavLink>
+                        }
                     </div>
                     <br/>
-                    <div className={"button"}>
-                        <button id={"teamDeleteButton"} type="button" className="btn btn-dark" onClick={this.handleOpen}>Delete</button>
+                    <div className={"teamDeleteButton"}>
+                        {localStorage.getItem("currentUserRole") === "DIRECTOR" &&
+                            <button id={"teamDeleteButton"} type="button" className="btn btn-dark"
+                                    onClick={this.handleOpen}>Delete</button>
+                        }
                     </div>
                     <Modal show={this.state.isModal} onHide={this.handleClose}>
                         <Modal.Header closeButton>
@@ -136,7 +143,7 @@ class Team extends Component {
                             <button id={"teamStatisticButton"} type="button" className="btn btn-dark">Statistic</button>
                         </NavLink>
                     </div>
-                    <div className={"button"}>
+                    <div className={"teamBackButton"}>
                         <NavLink to={"/teams"}>
                             <button id={"teamBackButton"} type="button" className="btn btn-dark">Back</button>
                         </NavLink>

@@ -90,7 +90,7 @@ class Profile extends Component {
                         </div>
                         <div className={"userTeam"}>
                             <label>Team: </label>
-                            <h3>{this.state.team.name}</h3>
+                            <h3>{this.state.team ? this.state.team.name : "-"}</h3>
                             <hr/>
                         </div>
                         <div className={"userManager"}>

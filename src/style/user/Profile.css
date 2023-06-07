@@ -98,5 +98,13 @@
 #employeeStatisticButton {
     position: relative;
     top: -150px;
+    left: -5px;
+    width: 150px;
+}
+
+#employeeEditButton {
+    position: relative;
+    top: -150px;
+    left: 5px;
     width: 150px;
 }

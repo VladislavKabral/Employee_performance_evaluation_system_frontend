@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import Header from "../../header/Header.jsx";
-import Footer from "../../footer/Footer.jsx";
 
 class ManagerEmployees extends Component {
 
@@ -27,6 +26,10 @@ class ManagerEmployees extends Component {
             }).catch(function (error) {
             console.log(error);
         })
+    }
+
+    handleOpenProfileWindow = (user) => {
+        localStorage.setItem("userId", user.id);
     }
 
     processUsers(index, user) {
@@ -65,7 +68,6 @@ class ManagerEmployees extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Footer/>
             </div>
         )
     }

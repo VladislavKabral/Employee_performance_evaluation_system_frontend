@@ -65,9 +65,11 @@ class Teams extends Component {
                         </table>
                     </div>
                     <div className={"button"}>
-                        <NavLink to={"/addTeam"}>
-                            <button id={"teamsCreateNewTeamButton"} type="button" className="btn btn-dark">Create new team</button>
-                        </NavLink>
+                        {localStorage.getItem("currentUserRole") === "DIRECTOR" &&
+                            <NavLink to={"/addTeam"}>
+                                <button id={"teamsCreateNewTeamButton"} type="button" className="btn btn-dark">Create new team</button>
+                            </NavLink>
+                        }
                     </div>
                 </div>
             </div>

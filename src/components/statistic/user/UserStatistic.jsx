@@ -64,7 +64,6 @@ class UserStatistic extends Component {
         const bestAverageFeedbackMark = localStorage.getItem("bestAverageFeedbackMark");
         const worstAverageFeedbackMark = localStorage.getItem("worstAverageFeedbackMark");
         const marks = JSON.parse(localStorage.getItem("marks"));
-        console.log(marks);
         let countOfMarks = 0;
         let percents = [];
 

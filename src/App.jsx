@@ -29,6 +29,7 @@ import ManagerEmployees from "./components/user/manager/ManagerEmployees.jsx";
 import EmployeeProfile from "./components/user/employee/EmployeeProfile.jsx";
 import EmployeeStatistic from "./components/user/employee/EmployeeStatistic.jsx";
 import Registration from "./components/auth/Registration.jsx";
+import EmployeeEdit from "./components/user/employee/EmployeeEdit.jsx";
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
                 <Route path={"/employees"} element={<ManagerEmployees/>}/>
                 <Route path={"/employeeProfile"} element={<EmployeeProfile/>}/>
                 <Route path={"/employeeStatistic"} element={<EmployeeStatistic/>}/>
+                <Route path={"/employeeEdit"} element={<EmployeeEdit/>}/>
             </Routes>
         </div>
     </div>

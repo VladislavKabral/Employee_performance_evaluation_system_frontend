@@ -82,3 +82,24 @@ table {
     left: 175px;
     width: 150px;
 }
+
+.teamUpdateButton {
+    position: relative;
+    top: 50px;
+}
+
+.teamDeleteButton {
+    position: relative;
+    top: 68px;
+}
+
+.teamStatisticButton {
+    position: relative;
+    top: 92px;
+}
+
+.teamBackButton {
+    position: relative;
+    top: 79px;
+}
+

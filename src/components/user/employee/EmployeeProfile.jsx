@@ -81,7 +81,7 @@ class EmployeeProfile extends Component {
                         </div>
                         <div className={"userTeam"}>
                             <label>Team: </label>
-                            <h3>{this.state.team.name}</h3>
+                            <h3>{this.state.team ? this.state.team.name : "-"}</h3>
                             <hr/>
                         </div>
                         <div className={"userManager"}>
@@ -97,6 +97,11 @@ class EmployeeProfile extends Component {
                         <NavLink to={"/employeeStatistic"}>
                             <button id={"employeeStatisticButton"} type="button" className="btn btn-dark">Statistic</button>
                         </NavLink>
+                        {localStorage.getItem("currentUserRole") === "DIRECTOR" &&
+                            <NavLink to={"/employeeEdit"}>
+                                <button id={"employeeEditButton"} type="button" className="btn btn-dark">Edit</button>
+                            </NavLink>
+                        }
                     </div>
                 </div>
             </div>
