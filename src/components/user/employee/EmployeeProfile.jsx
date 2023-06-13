@@ -58,6 +58,11 @@ class EmployeeProfile extends Component {
         })
     }
 
+    handleOpenEditEmployeeWindow() {
+        localStorage.setItem("userSalary", this.state.salary.value);
+        localStorage.setItem("userTeam", this.state.team.name);
+    }
+
     render() {
         return (
             <div>
@@ -99,7 +104,8 @@ class EmployeeProfile extends Component {
                         </NavLink>
                         {localStorage.getItem("currentUserRole") === "DIRECTOR" &&
                             <NavLink to={"/employeeEdit"}>
-                                <button id={"employeeEditButton"} type="button" className="btn btn-dark">Edit</button>
+                                <button id={"employeeEditButton"} type="button" className="btn btn-dark"
+                                onClick={() => this.handleOpenEditEmployeeWindow()}>Edit</button>
                             </NavLink>
                         }
                     </div>

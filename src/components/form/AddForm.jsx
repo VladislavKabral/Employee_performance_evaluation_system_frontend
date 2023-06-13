@@ -164,10 +164,12 @@ class AddForm extends Component {
                     {inputs}
                 </div>
                 <div className={"addFormAddQuestionButton"}>
-                    <button id={"addFormAddQuestionButton"} type="button" className="btn btn-dark" onClick={this.handleAddQuestion}>Add question</button>
+                    <button id={"addFormAddQuestionButton"} type="button" className="btn btn-dark"
+                            onClick={this.handleAddQuestion}>Add question</button>
                 </div>
                 <div className={"addFormCreateButton"}>
-                    <button id={"addFormCreateButton"} type="button" className="btn btn-dark" onClick={() => this.createForm(this.state.questionFormCount)}>
+                    <button id={"addFormCreateButton"} type="button" className="btn btn-dark"
+                            onClick={() => this.createForm(this.state.questionFormCount)}>
                         Create form</button>
                 </div>
                 <div className={"addFormBackButton"}>

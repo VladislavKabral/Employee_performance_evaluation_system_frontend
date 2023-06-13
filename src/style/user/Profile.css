@@ -108,3 +108,58 @@
     left: 5px;
     width: 150px;
 }
+
+.editEmployee {
+    position: relative;
+    top: 75px;
+    width: 750px;
+    left: 230px;
+    height: 450px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.editEmployee h1 {
+    position: relative;
+    top: 25px;
+    color: white;
+}
+
+.editSalary h3 {
+    position: relative;
+    top: 75px;
+    left: -230px;
+}
+
+.editTeam h3 {
+    position: relative;
+    top: 75px;
+    left: -230px;
+}
+
+#salary {
+    position: relative;
+    top: 33px;
+    left: 230px;
+    width: 400px;
+}
+
+#team {
+    position: relative;
+    top: 31px;
+    left: 230px;
+    width: 400px;
+}
+
+#editEmployeeEditButton {
+    position: relative;
+    width: 150px;
+    top: 150px;
+    left: -150px;
+}
+
+#editEmployeeBackButton {
+    position: relative;
+    width: 150px;
+    top: 112px;
+    left: 150px;
+}
