@@ -136,6 +136,12 @@
     left: -230px;
 }
 
+.editManager h3 {
+    position: relative;
+    top: 75px;
+    left: -230px;
+}
+
 #salary {
     position: relative;
     top: 33px;
@@ -150,16 +156,23 @@
     width: 400px;
 }
 
+#manager {
+    position: relative;
+    top: 31px;
+    left: 230px;
+    width: 400px;
+}
+
 #editEmployeeEditButton {
     position: relative;
     width: 150px;
-    top: 150px;
+    top: 75px;
     left: -150px;
 }
 
 #editEmployeeBackButton {
     position: relative;
     width: 150px;
-    top: 112px;
+    top: 37px;
     left: 150px;
 }

@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import '../../../style/user/Profile.css'
 import Header from "../../header/Header.jsx";
 import {NavLink} from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 class EmployeeEdit extends Component {
 
@@ -15,7 +17,8 @@ class EmployeeEdit extends Component {
             users: [],
             isModal: false,
             teams: [],
-            salaries: [400, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000]
+            salaries: [400, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000],
+            managers: []
         }
     }
 
@@ -70,6 +73,21 @@ class EmployeeEdit extends Component {
             }).catch(function (error) {
             console.log(error);
         })
+
+        fetch(`http://localhost:8080/users/managers`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    managers: data
+                })
+                localStorage.setItem("managers", JSON.stringify(this.state.managers));
+            }).catch(function (error) {
+            console.log(error);
+        })
     }
 
     generateSalarySelector() {
@@ -98,21 +116,49 @@ class EmployeeEdit extends Component {
         )
     }
 
+    generateManagerSelector() {
+        let options = [];
+        this.state.managers.map((manager) => {
+            if (manager.lastname === localStorage.getItem("userManager")) {
+                options.push(<option selected={true}>{manager.lastname + " " + manager.firstname}</option>);
+            } else {
+                options.push(<option>{manager.lastname + " " + manager.firstname}</option>);
+            }
+        })
+
+        return (
+            React.Children.toArray(options)
+        )
+    }
+
     async editUser() {
         const salaryInput = document.getElementById('salary');
         const salary = salaryInput.value;
-        let requestSalary = {
+        const requestSalary = {
             value: salary
         };
 
         const teamInput = document.getElementById('team');
         const team = teamInput.value;
-        let requestTeam = {
+        const requestTeam = {
             name: team
         };
 
+        const managerInput = document.getElementById('manager');
+        const manager = managerInput.value;
+        let managerId;
+        const managers = JSON.parse(localStorage.getItem("managers"));
+        managers.map((currentManager) => {
+           if ((currentManager.lastname + " " + currentManager.firstname) === manager) {
+               managerId = currentManager.id;
+           }
+        });
+        const requestManager = {
+            id: managerId
+        }
+
         let cache = [];
-        if (salary && team) {
+        if (salary && team && manager) {
             await fetch(`http://localhost:8080/users/${localStorage.getItem("userId")}/edit`, {
                 method: 'PATCH',
                 headers: {
@@ -120,7 +166,8 @@ class EmployeeEdit extends Component {
                     'Access-Control-Allow-Origin': '*',
                     'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
                 },
-                body: JSON.stringify({salary: requestSalary, team: requestTeam}, function(key, value) {
+                body: JSON.stringify({salary: requestSalary, team: requestTeam, manager: requestManager},
+                    function(key, value) {
                     if (typeof value === 'object' && value !== null) {
                         if (cache.indexOf(value) !== -1) {
                             return;
@@ -154,9 +201,15 @@ class EmployeeEdit extends Component {
                             {this.generateTeamSelector()}
                         </select>
                     </div>
+                    <div className={"editManager"}>
+                        <h3>Manager: </h3>
+                        <select className="form-control" id={"manager"}>
+                            {this.generateManagerSelector()}
+                        </select>
+                    </div>
                     <div className={"editEmployeeEditButton"}>
                         <button id={"editEmployeeEditButton"} type="button" className="btn btn-dark"
-                                onClick={this.editUser}>
+                                onClick={() => this.setState({isModal: true})}>
                             Edit</button>
                     </div>
                     <div className={"editEmployeeBackButton"}>
@@ -165,6 +218,20 @@ class EmployeeEdit extends Component {
                         </NavLink>
                     </div>
                 </div>
+                <Modal show={this.state.isModal} onHide={() => this.setState({isModal: false})}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Warning!</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Do you really want to edit employee's data?</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.editUser}>
+                            Yes
+                        </Button>
+                        <Button variant="secondary" onClick={() => this.setState({isModal: false})}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         )
     }

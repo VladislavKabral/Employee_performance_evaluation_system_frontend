@@ -61,6 +61,7 @@ class EmployeeProfile extends Component {
     handleOpenEditEmployeeWindow() {
         localStorage.setItem("userSalary", this.state.salary.value);
         localStorage.setItem("userTeam", this.state.team.name);
+        localStorage.setItem("userManager", this.state.manager.lastname);
     }
 
     render() {
