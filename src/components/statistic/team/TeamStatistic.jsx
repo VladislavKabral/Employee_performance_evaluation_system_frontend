@@ -3,6 +3,7 @@ import '../../../style/statistic/team/TeamStatistic.css'
 import CanvasJSReact from '@canvasjs/react-charts';
 import {NavLink} from "react-router-dom";
 import Header from "../../header/Header.jsx";
+import JSPDF from "jspdf";
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 class TeamStatistic extends Component {
@@ -58,6 +59,42 @@ class TeamStatistic extends Component {
             }).catch(function (error) {
             console.log(error);
         })
+    }
+
+    pdfGenerator = () => {
+        const doc = new JSPDF('p', 'pt');
+        const currentDate = new Date().toLocaleString('en', {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+
+        doc.line(0, 50, 1200, 50);
+
+        doc.setFont('times', 'bold', 48);
+        doc.text('TEAM`S STATISTIC', 240, 30);
+
+        doc.setFont('courier', 'bold', 64);
+
+        doc.text('Team: ' + this.state.team.name, 50, 100);
+        doc.text('Date: ' + currentDate, 250, 100);
+
+        doc.text('Average mark for feedback:   ' + localStorage.getItem("averageFeedbackMark"), 50, 150);
+        doc.text('Average mark of the best feedback:   ' + localStorage.getItem("bestAverageFeedbackMark"),
+            50, 175);
+        doc.text('Average mark of the worst feedback:   ' + localStorage.getItem("worstAverageFeedbackMark"),
+            50, 200);
+        doc.text('The best skill:   ' + this.state.bestSkill.name, 50, 225);
+        doc.text('The worst skill:   ' + this.state.worstSkill.name, 50, 250);
+        doc.text('The best employee:   ' + this.state.bestEmployee.lastname, 50, 275);
+        doc.text('The worst employee:   ' + this.state.worstEmployee.lastname, 50, 300);
+
+        doc.setFont('times', 'bold', 24);
+        doc.text('Employee performance evaluation system', 50, 830);
+
+        doc.line(0, 800, 1200, 800);
+
+        doc.save(this.state.team.name + " statistic.pdf");
     }
 
     render() {
@@ -132,12 +169,12 @@ class TeamStatistic extends Component {
                             <h4 id={"worstSkillLabel"}>The worst skill: </h4>
                             <h3 id={"worstSkillName"}>{this.state.worstSkill.name}</h3>
                         </div>
-                        <div className={"statisticBestFeedbackEmployee"}>
-                            <h4 id={"bestFeedbackEmployeeLabel"}>The employee, who rated the best: </h4>
+                        <div className={"teamStatisticBestFeedbackEmployee"}>
+                            <h4 id={"teamBestFeedbackEmployeeLabel"}>The best employee: </h4>
                             <h3 id={"bestFeedbackEmployeeName"}>{this.state.bestEmployee.lastname}</h3>
                         </div>
-                        <div className={"statisticWorstFeedbackEmployee"}>
-                            <h4 id={"worstFeedbackEmployeeLabel"}>The employee, who rated the worst: </h4>
+                        <div className={"teamStatisticWorstFeedbackEmployee"}>
+                            <h4 id={"teamWorstFeedbackEmployeeLabel"}>The worst employee: </h4>
                             <h3 id={"worstFeedbackEmployeeName"}>{this.state.worstEmployee.lastname}</h3>
                         </div>
                     </div>
@@ -148,6 +185,10 @@ class TeamStatistic extends Component {
                         <NavLink to={"/team"}>
                             <button id={"teamStatisticBackButton"} type="button" className="btn btn-dark">Back</button>
                         </NavLink>
+                    </div>
+                    <div className={"teamStatisticSaveToPDF"}>
+                        <button id={"teamStatisticSaveToPDFButton"} type="button" className="btn btn-dark"
+                                onClick={this.pdfGenerator}>Save to PDF</button>
                     </div>
                 </div>
             </div>

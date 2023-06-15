@@ -176,3 +176,14 @@
     top: 37px;
     left: 150px;
 }
+
+.employeeStatisticPrintDPF {
+    position: relative;
+    width: 150px;
+    top: -450px;
+    left: 125px;
+}
+
+#employeeStatisticPrintDPF {
+    width: 150px;
+}

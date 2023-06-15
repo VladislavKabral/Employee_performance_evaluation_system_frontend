@@ -17,6 +17,8 @@
 .teamStatisticBackButton {
     position: relative;
     top: -125px;
+    width: 150px;
+    left: 800px;
 }
 
 #teamStatisticBackButton {
@@ -25,4 +27,37 @@
 
 .stat {
     height: 450px;
+}
+
+.teamStatisticBestFeedbackEmployee {
+    position: relative;
+    top: -425px;
+}
+
+.teamStatisticWorstFeedbackEmployee {
+    position: relative;
+    top: -425px;
+}
+
+#teamBestFeedbackEmployeeLabel {
+    position: relative;
+    top: 255px;
+    left: -197px;
+}
+
+#teamWorstFeedbackEmployeeLabel {
+    position: relative;
+    top: 215px;
+    left: -190px;
+}
+
+.teamStatisticSaveToPDF {
+    position: relative;
+    top: -163px;
+    left: 200px;
+    width: 150px;
+}
+
+#teamStatisticSaveToPDFButton {
+    width: 150px;
 }

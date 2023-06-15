@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import '../../../style/statistic/user/UserStatistic.css'
 import CanvasJSReact from '@canvasjs/react-charts';
 import Header from "../../header/Header.jsx";
+import JSPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -59,12 +61,50 @@ class EmployeeStatistic extends Component {
         })
     }
 
+    pdfGenerator = () => {
+        const doc = new JSPDF('p', 'pt');
+        const currentDate = new Date().toLocaleString('en', {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+
+        doc.line(0, 50, 1200, 50);
+
+        doc.setFont('times', 'bold', 48);
+        doc.text('EMPLOYEE`S STATISTIC', 200, 30);
+
+        doc.setFont('courier', 'bold', 64);
+
+        doc.text('Employee: ' + this.state.user.lastname + ' ' + this.state.user.firstname, 50, 100);
+        doc.text('Date: ' + currentDate, 250, 100);
+
+        doc.text('Average mark for feedback:   ' + localStorage.getItem("averageFeedbackMark"), 50, 150);
+        doc.text('Average mark of the best feedback:   ' + localStorage.getItem("bestAverageFeedbackMark"),
+            50, 175);
+        doc.text('Average mark of the worst feedback:   ' + localStorage.getItem("worstAverageFeedbackMark"),
+            50, 200);
+        doc.text('The best skill:   ' + this.state.bestSkill.name, 50, 225);
+        doc.text('The worst skill:   ' + this.state.worstSkill.name, 50, 250);
+        doc.text('The employee, who rated the best:   ' + this.state.bestEmployee.lastname, 50, 275);
+        doc.text('The employee, who rated the worst:   ' + this.state.worstEmployee.lastname, 50, 300);
+        html2canvas(document.getElementById('employeeStatisticChart')).then(function (canvas) {
+            doc.addImage(canvas, 'JPEG', 50, 350, canvas.width, canvas.height);
+        });
+
+        doc.setFont('times', 'bold', 24);
+        doc.text('Employee performance evaluation system', 50, 830);
+
+        doc.line(0, 800, 1200, 800);
+
+        doc.save(this.state.user.lastname + " statistic.pdf");
+    }
+
     render() {
         const averageFeedbackMark = localStorage.getItem("averageFeedbackMark");
         const bestAverageFeedbackMark = localStorage.getItem("bestAverageFeedbackMark");
         const worstAverageFeedbackMark = localStorage.getItem("worstAverageFeedbackMark");
         const marks = JSON.parse(localStorage.getItem("marks"));
-        console.log(marks);
         let countOfMarks = 0;
         let percents = [];
 
@@ -145,8 +185,12 @@ class EmployeeStatistic extends Component {
                             <h3 id={"worstFeedbackEmployeeName"}>{this.state.worstEmployee.lastname}</h3>
                         </div>
                     </div>
-                    <div className={"statisticDiagram"}>
+                    <div id={"employeeStatisticChart"} className={"statisticDiagram"}>
                         <CanvasJSChart options = {options}/>
+                    </div>
+                    <div className={"employeeStatisticPrintDPF"}>
+                        <button id={"employeeStatisticPrintDPF"} type="button" className="btn btn-dark"
+                        onClick={this.pdfGenerator}>Save to PDF</button>
                     </div>
                 </div>
             </div>

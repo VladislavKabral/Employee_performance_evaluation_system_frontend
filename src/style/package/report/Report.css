@@ -172,4 +172,16 @@ h2, h3, h4 {
 .reportBack {
     position: relative;
     top: -500px;
+    left: 150px;
+}
+
+.reportSaveToPDF {
+    position: relative;
+    width: 150px;
+    top: -348px;
+    left: 150px;
+}
+
+#reportSaveToPDFButton {
+    width: 150px;
 }

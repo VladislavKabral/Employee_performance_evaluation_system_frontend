@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import '../../../style/package/report/Report.css'
 import {NavLink} from "react-router-dom";
 import Header from "../../header/Header.jsx";
+import JSPDF from "jspdf";
 
 class Report extends Component {
 
@@ -48,9 +49,55 @@ class Report extends Component {
                     bestEmployee: data.bestFeedbackEmployee,
                     worstEmployee: data.worstFeedbackEmployee
                 })
+                localStorage.setItem("averageFeedbackMark", this.state.report.averageFeedbackMark
+                    .toFixed(2));
+                localStorage.setItem("bestAverageFeedbackMark", this.state.report.bestAverageFeedbackMark
+                    .toFixed(2));
+                localStorage.setItem("worstAverageFeedbackMark", this.state.report.worstAverageFeedbackMark
+                    .toFixed(2));
             }).catch(function (error) {
             console.log(error);
         })
+    }
+
+    pdfGenerator = () => {
+        const doc = new JSPDF('p', 'pt');
+        const currentDate = new Date().toLocaleString('en', {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+
+        doc.line(0, 50, 1200, 50);
+
+        doc.setFont('times', 'bold', 48);
+        doc.text('PACKAGES`S REPORT', 225, 30);
+
+        doc.setFont('courier', 'bold', 64);
+
+        doc.text('Package: ' + this.state.package.name, 50, 100);
+        doc.text('Employee: ' + this.state.user.lastname + ' ' + this.state.user.firstname, 50, 150);
+        doc.text('Date: ' + currentDate, 250, 150);
+
+        doc.text('Average mark for feedback:   ' + localStorage.getItem("averageFeedbackMark"), 50, 200);
+        doc.text('Average mark of the best feedback:   ' + localStorage.getItem("bestAverageFeedbackMark"),
+            50, 225);
+        doc.text('Average mark of the worst feedback:   ' + localStorage.getItem("worstAverageFeedbackMark"),
+            50, 250);
+        doc.text('The best skill:   ' + this.state.bestSkill.name, 50, 275);
+        doc.text('The worst skill:   ' + this.state.worstSkill.name, 50, 300);
+        doc.text('The employee, who rated the best:   ' + this.state.bestEmployee.lastname, 50, 325);
+        doc.text('The employee, who rated the worst:   ' + this.state.worstEmployee.lastname, 50, 350);
+        doc.line(0, 375, 1200, 375);
+        doc.text('Is the employee survey over?   ' + (this.state.report.allFeedbacksCompleted ? "Yes" : "No"),
+            50, 400);
+
+        doc.setFont('times', 'bold', 24);
+        doc.text('Employee performance evaluation system', 50, 830);
+
+        doc.line(0, 800, 1200, 800);
+
+        doc.save(this.state.package.name + " report.pdf");
     }
 
     render() {
@@ -70,15 +117,15 @@ class Report extends Component {
                     <hr/>
                     <div className={"averageFeedbackMark"}>
                         <h4 id={"averageFeedbackMarkLabel"}>Average mark for feedback: </h4>
-                        <h3 id={"averageFeedbackMarkValue"}>{this.state.report.averageFeedbackMark}</h3>
+                        <h3 id={"averageFeedbackMarkValue"}>{localStorage.getItem("averageFeedbackMark")}</h3>
                     </div>
                     <div className={"bestAverageFeedbackMark"}>
                         <h4 id={"bestAverageFeedbackMarkLabel"}>Average mark of the best feedback: </h4>
-                        <h3 id={"bestAverageFeedbackMarkValue"}>{this.state.report.bestAverageFeedbackMark}</h3>
+                        <h3 id={"bestAverageFeedbackMarkValue"}>{localStorage.getItem("bestAverageFeedbackMark")}</h3>
                     </div>
                     <div className={"worstAverageFeedbackMark"}>
                         <h4 id={"worstAverageFeedbackMarkLabel"}>Average mark of the worst feedback: </h4>
-                        <h3 id={"worstAverageFeedbackMarkValue"}>{this.state.report.worstAverageFeedbackMark}</h3>
+                        <h3 id={"worstAverageFeedbackMarkValue"}>{localStorage.getItem("worstAverageFeedbackMark")}</h3>
                     </div>
                     <div className={"bestSkill"}>
                         <h4 id={"bestSkillLabel"}>The best skill: </h4>
@@ -106,6 +153,10 @@ class Report extends Component {
                             <button id={"reportBackButton"} type="button" className="btn btn-dark"
                                     onClick={() => localStorage.setItem("packageId", this.state.package.id)}>Back</button>
                         </NavLink>
+                    </div>
+                    <div className={"reportSaveToPDF"}>
+                        <button id={"reportSaveToPDFButton"} type="button" className="btn btn-dark"
+                                onClick={this.pdfGenerator}>Save to PDF</button>
                     </div>
                 </div>
             </div>
