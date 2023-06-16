@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import '../../../style/user/Profile.css';
 import {NavLink} from "react-router-dom";
 import Header from "../../header/Header.jsx";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 class EmployeeProfile extends Component {
 
@@ -64,6 +66,18 @@ class EmployeeProfile extends Component {
         localStorage.setItem("userManager", this.state.manager.lastname);
     }
 
+    async retireEmployee() {
+        await fetch(`http://localhost:8080/users/${localStorage.getItem("userId")}/retire`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        });
+
+        window.location.assign("/profile");
+    }
+
     render() {
         return (
             <div>
@@ -109,7 +123,25 @@ class EmployeeProfile extends Component {
                                 onClick={() => this.handleOpenEditEmployeeWindow()}>Edit</button>
                             </NavLink>
                         }
+                        {localStorage.getItem("currentUserRole") === "DIRECTOR" &&
+                            <button id={"employeeRetireButton"} type="button" className="btn btn-dark"
+                                    onClick={() => this.setState({isModal: true})}>Retire</button>
+                        }
                     </div>
+                    <Modal show={this.state.isModal} onHide={() => this.setState({isModal: false})}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Warning!</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>Do you really want to retire the employee?</Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={this.retireEmployee}>
+                                Yes
+                            </Button>
+                            <Button variant="secondary" onClick={() => this.setState({isModal: false})}>
+                                Close
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
             </div>
         )

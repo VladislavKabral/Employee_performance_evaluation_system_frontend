@@ -98,15 +98,14 @@
 #employeeStatisticButton {
     position: relative;
     top: -150px;
-    left: -5px;
-    width: 150px;
+    left: -25px;
+    width: 125px;
 }
 
 #employeeEditButton {
     position: relative;
     top: -150px;
-    left: 5px;
-    width: 150px;
+    width: 125px;
 }
 
 .editEmployee {
@@ -186,4 +185,11 @@
 
 #employeeStatisticPrintDPF {
     width: 150px;
+}
+
+#employeeRetireButton {
+    position: relative;
+    width: 125px;
+    top: -150px;
+    left: 25px;
 }

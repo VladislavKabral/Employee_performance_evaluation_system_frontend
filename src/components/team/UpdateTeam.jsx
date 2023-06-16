@@ -91,7 +91,7 @@ class UpdateTeam extends Component {
                 <tr>
                     <td>{index}</td>
                     <td>
-                        <NavLink to={"/employeeProfile"} onClick={() => localStorage.setItem("userId", user.id)}>
+                        <NavLink className={"nav-link"} to={"/employeeProfile"} onClick={() => localStorage.setItem("userId", user.id)}>
                             {userFullName}
                         </NavLink>
                     </td>

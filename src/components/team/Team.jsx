@@ -120,20 +120,20 @@ class Team extends Component {
                     <div className={"teamDeleteButton"}>
                         {localStorage.getItem("currentUserRole") === "DIRECTOR" &&
                             <button id={"teamDeleteButton"} type="button" className="btn btn-dark"
-                                    onClick={this.handleOpen}>Delete</button>
+                                    onClick={this.handleOpen}>Retire</button>
                         }
                     </div>
                     <Modal show={this.state.isModal} onHide={this.handleClose}>
                         <Modal.Header closeButton>
                             <Modal.Title>Warning!</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>Do you really want to delete the team?</Modal.Body>
+                        <Modal.Body>Do you really want to retire the team?</Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={this.handleClose}>
                                 Close
                             </Button>
                             <Button variant="primary" onClick={() => this.deleteTeam(this.state.team.id)}>
-                                Delete
+                                Retire
                             </Button>
                         </Modal.Footer>
                     </Modal>
