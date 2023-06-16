@@ -2,28 +2,28 @@ import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import Header from "../header/Header.jsx";
 
-class Requests extends Component {
+class UserFeedbacks extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            requests: [],
+            feedbacks: [],
             packages: []
         }
     }
 
     componentDidMount() {
-         fetch(`http://localhost:8080/feedbacks/user/${localStorage.getItem("currentUserId")}`, {
-             headers: {
-                 'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
-             }
-         })
+        fetch(`http://localhost:8080/feedbacks/${localStorage.getItem("currentUserId")}/feedbacks`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    requests: data
+                    feedbacks: data
                 })
-                this.state.requests.forEach((request) => {
+                this.state.feedbacks.forEach((request) => {
                     fetch(`http://localhost:8080/packages/${request.feedbackPackage.id}`, {
                         headers: {
                             'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
@@ -40,11 +40,10 @@ class Requests extends Component {
             }).catch(function (error) {
             console.log(error);
         })
-        localStorage.setItem("isFeedback", "No");
+        localStorage.setItem("isFeedback", "Yes")
     }
 
     processRequest(index, request) {
-        const feedbackPackage = JSON.parse(localStorage.getItem(`request${request.id}`));
         let link = request.status.name === "COMPLETED" ? '/feedback' : "/completeFeedback";
 
         return (
@@ -60,7 +59,7 @@ class Requests extends Component {
                     <td>
                         <NavLink className={"nav-link"} to={link}
                                  onClick={() => localStorage.setItem("requestId", request.id)}>
-                            {feedbackPackage.targetUser.lastname + " " + feedbackPackage.targetUser.firstname}
+                            {request.sourceUser.lastname + " " + request.sourceUser.firstname}
                         </NavLink>
                     </td>
                     <td>
@@ -81,14 +80,14 @@ class Requests extends Component {
     }
 
     render() {
-        const processedRequests = React.Children.toArray(this.state.requests.map((request) =>
-            this.processRequest(this.state.requests.indexOf(request) + 1, request)));
+        const processedRequests = React.Children.toArray(this.state.feedbacks.map((request) =>
+            this.processRequest(this.state.feedbacks.indexOf(request) + 1, request)));
 
         return (
             <div>
                 <Header/>
                 <div className={"text"}>
-                    <h2>Requests</h2>
+                    <h2>Feedbacks</h2>
                 </div>
                 <div className={"requestsTable"}>
                     <table className="table table-bordered table-dark">
@@ -116,4 +115,4 @@ class Requests extends Component {
     }
 }
 
-export default Requests;
+export default UserFeedbacks;

@@ -10,6 +10,7 @@ function Header() {
                     <div className="navbar-nav">
                         <li><NavLink className="nav-item nav-link" to={"/profile"}>Profile</NavLink></li>
                         <li><NavLink className="nav-item nav-link" to={"/requests"}>Requests</NavLink></li>
+                        <li><NavLink className="nav-item nav-link" to={"/userFeedbacks"}>Feedbacks</NavLink></li>
                         {(localStorage.getItem("currentUserRole") === "DIRECTOR" ||
                             localStorage.getItem("currentUserRole") === "MANAGER") &&
                             <li><NavLink className="nav-item nav-link" to={"/packages"}>Packages</NavLink></li>

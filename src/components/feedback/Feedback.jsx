@@ -77,9 +77,16 @@ class Feedback extends Component {
                     {generatedFields}
                 </div>
                 <div className={"feedbackBackButton"}>
-                    <NavLink to={"/requests"}>
-                        <button id={"feedbackBackButton"} type="button" className="btn btn-dark">Back</button>
-                    </NavLink>
+                    {(localStorage.getItem("isFeedback") === "Yes") &&
+                        <NavLink to={"/userFeedbacks"}>
+                            <button id={"feedbackBackButton"} type="button" className="btn btn-dark">Back</button>
+                        </NavLink>
+                    }
+                    {(localStorage.getItem("isFeedback") === "No") &&
+                        <NavLink to={"/requests"}>
+                            <button id={"feedbackBackButton"} type="button" className="btn btn-dark">Back</button>
+                        </NavLink>
+                    }
                 </div>
             </div>
         )

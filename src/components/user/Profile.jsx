@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import '../../style/user/Profile.css';
-import {NavLink} from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Header from "../header/Header.jsx";
@@ -103,9 +102,6 @@ class Profile extends Component {
                             <h3>{this.state.salary.value + "$"}</h3>
                             <hr/>
                         </div>
-                        <NavLink to={"/requests"}>
-                            <button id={"userRequestButton"} type="button" className="btn btn-dark">Requests</button>
-                        </NavLink>
                         <button id={"logOutButton"} type="button" className="btn btn-dark"
                                 onClick={() => this.setState({isModal: true})}>Log out</button>
                     </div>
