@@ -31,6 +31,7 @@ import EmployeeStatistic from "./components/user/employee/EmployeeStatistic.jsx"
 import Registration from "./components/auth/Registration.jsx";
 import EmployeeEdit from "./components/user/employee/EmployeeEdit.jsx";
 import UserFeedbacks from "./components/feedback/UserFeedbacks.jsx";
+import SearchUsers from "./components/user/SearchUsers.jsx";
 
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
                 <Route path={"/employeeStatistic"} element={<EmployeeStatistic/>}/>
                 <Route path={"/employeeEdit"} element={<EmployeeEdit/>}/>
                 <Route path={"/userFeedbacks"} element={<UserFeedbacks/>}/>
+                <Route path={"/search"} element={<SearchUsers/>}/>
             </Routes>
         </div>
     </div>

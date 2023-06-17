@@ -31,6 +31,10 @@ function Header() {
                             localStorage.getItem("currentUserRole") === "MANAGER") &&
                             <li><NavLink className="nav-item nav-link" to={"/teams"}>Teams</NavLink></li>
                         }
+                        {(localStorage.getItem("currentUserRole") === "DIRECTOR" ||
+                            localStorage.getItem("currentUserRole") === "MANAGER") &&
+                            <li><NavLink className="nav-item nav-link" to={"/search"}>Search</NavLink></li>
+                        }
                     </div>
                 </div>
             </div>

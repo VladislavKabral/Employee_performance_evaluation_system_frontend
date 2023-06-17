@@ -192,3 +192,26 @@
     top: -150px;
     left: 25px;
 }
+
+.search {
+    position: relative;
+    top: 100px;
+}
+
+.searchedEmployees {
+    position: relative;
+    top: 75px;
+}
+
+#employeeLastnameInput {
+    position: relative;
+    width: 400px;
+    left: 300px;
+}
+
+#searchEmployeeButton {
+    position: relative;
+    width: 150px;
+    top: -37px;
+    left: 225px;
+}
