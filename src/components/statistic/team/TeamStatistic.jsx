@@ -4,6 +4,7 @@ import CanvasJSReact from '@canvasjs/react-charts';
 import {NavLink} from "react-router-dom";
 import Header from "../../header/Header.jsx";
 import JSPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 class TeamStatistic extends Component {
@@ -62,6 +63,7 @@ class TeamStatistic extends Component {
     }
 
     pdfGenerator = () => {
+        const teamName = this.state.team.name;
         const doc = new JSPDF('p', 'pt');
         const currentDate = new Date().toLocaleString('en', {
             day: "numeric",
@@ -89,12 +91,15 @@ class TeamStatistic extends Component {
         doc.text('The best employee:   ' + this.state.bestEmployee.lastname, 50, 275);
         doc.text('The worst employee:   ' + this.state.worstEmployee.lastname, 50, 300);
 
+        html2canvas(document.getElementById('teamStatisticChart')).then(function (canvas) {
+            doc.addImage(canvas.toDataURL('image/png'), 'PNG', 50, 350, 500, 300);
+            doc.save(teamName + " statistic.pdf");
+        });
+
         doc.setFont('times', 'bold', 24);
         doc.text('Employee performance evaluation system', 50, 830);
 
         doc.line(0, 800, 1200, 800);
-
-        doc.save(this.state.team.name + " statistic.pdf");
     }
 
     render() {
@@ -178,7 +183,7 @@ class TeamStatistic extends Component {
                             <h3 id={"worstFeedbackEmployeeName"}>{this.state.worstEmployee.lastname}</h3>
                         </div>
                     </div>
-                    <div className={"teamStatisticDiagram"}>
+                    <div id={"teamStatisticChart"} className={"teamStatisticDiagram"}>
                         <CanvasJSChart options = {options}/>
                     </div>
                     <div className={"teamStatisticBackButton"}>

@@ -62,6 +62,7 @@ class EmployeeStatistic extends Component {
     }
 
     pdfGenerator = () => {
+        const employeeLastname = this.state.user.lastname;
         const doc = new JSPDF('p', 'pt');
         const currentDate = new Date().toLocaleString('en', {
             day: "numeric",
@@ -89,15 +90,13 @@ class EmployeeStatistic extends Component {
         doc.text('The employee, who rated the best:   ' + this.state.bestEmployee.lastname, 50, 275);
         doc.text('The employee, who rated the worst:   ' + this.state.worstEmployee.lastname, 50, 300);
         html2canvas(document.getElementById('employeeStatisticChart')).then(function (canvas) {
-            doc.addImage(canvas, 'JPEG', 50, 350, canvas.width, canvas.height);
+            doc.addImage(canvas.toDataURL('image/png'), 'PNG', 50, 350, 500, 300);
+            doc.save(employeeLastname + " statistic.pdf");
         });
-
         doc.setFont('times', 'bold', 24);
         doc.text('Employee performance evaluation system', 50, 830);
 
         doc.line(0, 800, 1200, 800);
-
-        doc.save(this.state.user.lastname + " statistic.pdf");
     }
 
     render() {
