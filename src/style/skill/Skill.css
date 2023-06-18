@@ -101,3 +101,9 @@ textarea {
     top: 150px;
     width: 150px;
 }
+
+.skillsPages {
+    position: relative;
+    top: 75px;
+    width: 250px;
+}

@@ -7,7 +7,9 @@ class Skills extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            skills: []
+            skills: [],
+            currentSkills: [],
+            currentPage: 0
         }
     }
 
@@ -25,6 +27,8 @@ class Skills extends Component {
             }).catch(function (error) {
             console.log(error);
         })
+
+        this.getCurrentSkills(this.state.currentPage);
     }
 
     processSkill(index, skill) {
@@ -44,9 +48,63 @@ class Skills extends Component {
             </>
         )
     }
+
+    async getCurrentSkills(pageNumber) {
+        await fetch(`http://localhost:8080/skills/page/${pageNumber}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        }).then(response => response.json())
+            .then(data => {
+                this.setState({
+                    currentSkills: data
+                })
+            }).catch(function (error) {
+                console.log(error);
+            });
+        this.componentDidMount();
+    }
+
+    generatePageLink(index) {
+        return (
+            <>
+                <li className="page-item"><a className="page-link"
+                                             onClick={() => this.setState({currentPage: index - 1})}>{index}</a></li>
+            </>
+        )
+    }
+
+    handleClickToPreviousPage = () => {
+        const page = this.state.currentPage;
+
+        if (page > 0) {
+            this.setState({currentPage:  this.state.currentPage - 1})
+        }
+    }
+
+    handleClickToNextPage = (pageCount) => {
+        const page = this.state.currentPage;
+
+        if (page < pageCount - 1) {
+            this.setState({currentPage:  this.state.currentPage + 1})
+        }
+    }
+
     render() {
-        const processedSkills = React.Children.toArray(this.state.skills.map((skill) =>
-            this.processSkill(this.state.skills.indexOf(skill) + 1, skill)));
+        const processedSkills = React.Children.toArray(this.state.currentSkills.map((skill) =>
+            this.processSkill(this.state.currentSkills.indexOf(skill) + 1, skill)));
+
+        const countOfPages = Math.ceil(this.state.skills.length / 10);
+
+        let tempLinks = [];
+        for (let i = 1; i <= countOfPages; i++) {
+            tempLinks.push(this.generatePageLink(i));
+        }
+
+        const pageLinks = React.Children.toArray(tempLinks);
 
         return (
             <div>
@@ -65,6 +123,19 @@ class Skills extends Component {
                             {processedSkills}
                             </tbody>
                         </table>
+                    </div>
+                    <div className={"skillsPages"}>
+                        <nav aria-label="Page navigation">
+                            <ul className="pagination">
+                                <li className="page-item"><a className="page-link"
+                                     onClick={() => this.handleClickToPreviousPage()}>
+                                    Previous</a></li>
+                                {pageLinks}
+                                <li className="page-item"><a className="page-link"
+                                     onClick={() => this.handleClickToNextPage(countOfPages)}>
+                                    Next</a></li>
+                            </ul>
+                        </nav>
                     </div>
                     <div className={"button"}>
                         <NavLink to={"/addSkill"}>
