@@ -1,0 +1,65 @@
+.registration {
+    position: relative;
+    height: 550px;
+    width: 500px;
+    top: 50px;
+    left: 350px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.registration h3 {
+    position: relative;
+    top: 25px;
+    font-family: monospace;
+}
+
+.registrationLastname {
+    position: relative;
+    width: 350px;
+    left: 75px;
+    top: 75px;
+}
+
+.registrationFirstname {
+    position: relative;
+    width: 350px;
+    left: 75px;
+    top: 90px;
+}
+
+.registrationConfirmedPassword {
+    position: relative;
+    width: 350px;
+    left: 75px;
+    top: 135px;
+}
+
+.registrationEmail {
+    position: relative;
+    width: 350px;
+    left: 75px;
+    top: 105px;
+}
+
+.registrationPassword {
+    position: relative;
+    width: 350px;
+    left: 75px;
+    top: 120px;
+}
+
+.authenticationLink {
+    position: relative;
+    top: 150px;
+}
+
+.registrationRegister {
+    position: relative;
+    top: 160px;
+}
+
+#registrationRegisterButton {
+    position: relative;
+    width: 150px;
+    top: 20px;
+}

@@ -1,0 +1,113 @@
+.formNameField {
+    position: relative;
+    top: 60px;
+    width: 350px;
+    left: 435px;
+}
+
+.questionsFields {
+    position: relative;
+    top: 75px;
+    width: 350px;
+    left: 435px;
+}
+
+.questionField {
+    width: 350px;
+    margin-top: 10px;
+}
+
+.formsCreateNewFormPage {
+    position: relative;
+    top: 25px;
+}
+
+.form-control {
+    margin-top: 10px;
+}
+
+#questionField {
+    border: none;
+}
+
+#addFormBackButton {
+    position: relative;
+    top: 83px;
+    left: 105px;
+    width: 150px;
+}
+
+#addFormCreateButton {
+    position: relative;
+    top: 120px;
+    left: -105px;
+    width: 150px;
+}
+
+#updateFormBackButton {
+    position: relative;
+    top: 57px;
+    left: 110px;
+    width: 150px;
+}
+
+#updateFormUpdateButton {
+    position: relative;
+    top: 120px;
+    left: -100px;
+    width: 150px;
+}
+
+#formBackButton {
+    position: relative;
+    top: -48px;
+    left: 275px;
+    width: 150px;
+}
+
+#formDeleteButton {
+    position: relative;
+    top: 29px;
+    left: -10px;
+    width: 150px;
+}
+
+#formUpdateButton {
+    position: relative;
+    top: 105px;
+    left: -300px;
+    width: 150px;
+}
+
+.deleteField {
+    position: relative;
+    left: 365px;
+    top: -110px;
+    width: 40px;
+}
+
+.deleteField img:hover {
+    cursor: pointer;
+}
+
+#formsCreateNewFormButton {
+    position: relative;
+    top: 100px;
+}
+
+#addFormAddQuestionButton {
+    position: relative;
+    top: 75px;
+    width: 150px;
+}
+
+#updateFormAddQuestionButton {
+    position: relative;
+    top: 100px;
+    width: 150px;
+}
+
+.formsPages {
+    position: relative;
+    top: 25px;
+}

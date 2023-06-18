@@ -1,0 +1,20 @@
+.requestUsers {
+    position: relative;
+    top: 50px;
+}
+
+#createRequestSendRequestsButton {
+    position: relative;
+    top: 150px;
+}
+
+#requestsBackButton {
+    position: relative;
+    top: 150px;
+    width: 100px;
+}
+
+.requestsTable {
+    position: relative;
+    top: 50px;
+}

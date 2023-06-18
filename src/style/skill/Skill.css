@@ -1,0 +1,109 @@
+.skillNameField {
+    position: relative;
+    top: 75px;
+    left: 435px;
+    width: 350px;
+}
+
+.skillDescriptionField {
+    position: relative;
+    top: 100px;
+    left: 435px;
+    width: 350px;
+}
+
+.button {
+    position: relative;
+    margin-top: 15px;
+}
+
+textarea {
+    resize: none;
+}
+
+.name, .description {
+    position: relative;
+    top: 50px;
+    width: 300px;
+}
+
+.name label {
+    font-size: 20px;
+    position: relative;
+    left: 300px;
+}
+
+.description label {
+    font-size: 20px;
+    position: relative;
+    left: 275px;
+}
+
+.name input {
+    position: relative;
+    left: 625px;
+    top: -35px;
+}
+
+.description textarea {
+    position: relative;
+    left: 575px;
+    top: -35px;
+}
+
+#addSkillBackButton {
+    position: relative;
+    top: 65px;
+    left: 125px;
+    width: 125px;
+}
+
+#addSkillCreateButton {
+    position: relative;
+    top: 126px;
+    left: -115px;
+    width: 125px;
+}
+
+#skillUpdateButton {
+    position: relative;
+    top: 50px;
+    left: -185px;
+}
+
+#skillDeleteButton {
+    position: relative;
+    top: -26px;
+    left: 15px;
+    width: 100px;
+}
+
+#skillBackButton {
+    position: relative;
+    top: -102px;
+    left: 217px;
+    width: 100px;
+}
+
+#skillsCreateNewSkillButton {
+    position: relative;
+    top: 100px;
+}
+
+#updateSkillBackButton {
+    position: relative;
+    top: 150px;
+    width: 150px;
+}
+
+#updateSkillUpdateButton {
+    position: relative;
+    top: 150px;
+    width: 150px;
+}
+
+.skillsPages {
+    position: relative;
+    top: 75px;
+    width: 250px;
+}

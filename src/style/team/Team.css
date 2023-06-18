@@ -1,0 +1,119 @@
+table {
+    position: relative;
+    top: 50px;
+}
+
+.text {
+    position: relative;
+    top: 50px;
+    color: white;
+}
+
+.teamsCreateNewTeamButton {
+    position: relative;
+    top: 25px;
+}
+
+.teamNameField {
+    position: relative;
+    top: 75px;
+    left: 435px;
+    width: 350px;
+}
+
+.employees {
+    position: relative;
+    top: 75px;
+}
+
+#teamUpdateButton {
+    position: relative;
+    top: 113px;
+    left: -400px;
+    width: 150px;
+}
+
+#teamDeleteButton {
+    position: relative;
+    top: 35px;
+    left: -100px;
+    width: 150px;
+}
+
+#teamBackButton {
+    position: relative;
+    top: -76px;
+    left: 450px;
+    width: 150px;
+}
+
+#teamsCreateNewTeamButton {
+    position: relative;
+    top: 100px;
+}
+
+#addTeamCreateButton {
+    position: relative;
+    top: 150px;
+    width: 150px;
+}
+
+#addTeamBackButton {
+    position: relative;
+    top: 150px;
+    width: 150px;
+}
+
+#updateTeamBackButton {
+    position: relative;
+    top: 150px;
+    width: 150px;
+}
+
+#updateTeamUpdateButton {
+    position: relative;
+    top: 150px;
+    width: 150px;
+}
+
+#teamStatisticButton {
+    position: relative;
+    top: -51px;
+    left: 175px;
+    width: 150px;
+}
+
+.teamUpdateButton {
+    position: relative;
+    top: 50px;
+}
+
+.teamDeleteButton {
+    position: relative;
+    top: 68px;
+}
+
+.teamStatisticButton {
+    position: relative;
+    top: 92px;
+}
+
+.teamBackButton {
+    position: relative;
+    top: 79px;
+}
+
+.teamsPages {
+    position: relative;
+    top: 50px;
+}
+
+.addTeamUsersPages {
+    position: relative;
+    top: 130px;
+}
+
+.updateTeamUsersPages {
+    position: relative;
+    top: 130px;
+}

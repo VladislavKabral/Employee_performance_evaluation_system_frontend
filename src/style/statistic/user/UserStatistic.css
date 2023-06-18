@@ -1,0 +1,79 @@
+.userStatistic {
+    height: 650px;
+}
+
+.statistic {
+    position: relative;
+    top: -375px;
+    width: 650px;
+    height: 325px;
+    left: 500px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.userStatisticFullName {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    top: 100px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.userStatisticFullName img {
+    position: relative;
+    top: 25px;
+    width: 175px;
+    height: 175px;
+    border-radius: 90px;
+}
+
+.userStatisticFullName h2 {
+    position: relative;
+    top: 100px;
+    font-style: italic;
+    color: white;
+}
+
+.statisticAverageFeedbackMark {
+    position: relative;
+    top: 75px;
+}
+
+.statisticBestAverageFeedbackMark {
+    position: relative;
+    top: 75px;
+}
+
+.statisticWorstAverageFeedbackMark {
+    position: relative;
+    top: 75px;
+}
+
+.statisticBestSkill {
+    position: relative;
+    top: 75px;
+}
+
+.statisticWorstSkill {
+    position: relative;
+    top: 75px;
+}
+
+.statisticBestFeedbackEmployee {
+    position: relative;
+    top: -425px;
+}
+
+.statisticWorstFeedbackEmployee {
+    position: relative;
+    top: -425px;
+}
+
+.statisticDiagram {
+    position: relative;
+    height: 275px;
+    width: 650px;
+    top: -350px;
+    left: 500px;
+    background: rgba(0, 0, 0, 0.65);
+}
