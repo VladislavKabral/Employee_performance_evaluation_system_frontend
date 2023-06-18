@@ -8,7 +8,9 @@ class UpdateTeam extends Component {
         super(props);
         this.state = {
             users: [],
-            currentUsers: []
+            currentUsers: [],
+            currentPageUsers: [],
+            currentPage: 0
         }
     }
 
@@ -39,6 +41,8 @@ class UpdateTeam extends Component {
             }).catch(function (error) {
                 console.log(error);
         })
+
+        this.getCurrentUsers(this.state.currentPage);
     }
 
     async updateTeam(users) {
@@ -48,6 +52,7 @@ class UpdateTeam extends Component {
 
         users.forEach((user) => {
             const userCheckbox = document.getElementById(user.id);
+            console.log(userCheckbox);
             if (userCheckbox.checked) {
                 chosenUsers.push(user);
             }
@@ -103,9 +108,62 @@ class UpdateTeam extends Component {
         )
     }
 
+    async getCurrentUsers(pageNumber) {
+        await fetch(`http://localhost:8080/users/page/${pageNumber}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        }).then(response => response.json())
+            .then(data => {
+                this.setState({
+                    currentPageUsers: data
+                })
+            }).catch(function (error) {
+                console.log(error);
+            });
+        this.componentDidMount();
+    }
+
+    generatePageLink(index) {
+        return (
+            <>
+                <li className="page-item"><a className="page-link"
+                                             onClick={() => this.setState({currentPage: index - 1})}>{index}</a></li>
+            </>
+        )
+    }
+
+    handleClickToPreviousPage = () => {
+        const page = this.state.currentPage;
+
+        if (page > 0) {
+            this.setState({currentPage:  this.state.currentPage - 1})
+        }
+    }
+
+    handleClickToNextPage = (pageCount) => {
+        const page = this.state.currentPage;
+
+        if (page < pageCount - 1) {
+            this.setState({currentPage:  this.state.currentPage + 1})
+        }
+    }
+
     render() {
-        const processedUsers = React.Children.toArray(this.state.users.map((user) =>
-            this.processUsers(this.state.users.indexOf(user) + 1, user)));
+        const processedUsers = React.Children.toArray(this.state.currentPageUsers.map((user) =>
+            this.processUsers(this.state.currentPageUsers.indexOf(user) + 1, user)));
+
+        const countOfPages = Math.ceil(this.state.users.length / 10);
+
+        let tempLinks = [];
+        for (let i = 1; i <= countOfPages; i++) {
+            tempLinks.push(this.generatePageLink(i));
+        }
+
+        const pageLinks = React.Children.toArray(tempLinks);
 
         return (
             <div>
@@ -130,6 +188,19 @@ class UpdateTeam extends Component {
                         {processedUsers}
                         </tbody>
                     </table>
+                </div>
+                <div className={"updateTeamUsersPages"}>
+                    <nav aria-label="Page navigation">
+                        <ul className="pagination">
+                            <li className="page-item"><a className="page-link"
+                                                         onClick={() => this.handleClickToPreviousPage()}>
+                                Previous</a></li>
+                            {pageLinks}
+                            <li className="page-item"><a className="page-link"
+                                                         onClick={() => this.handleClickToNextPage(countOfPages)}>
+                                Next</a></li>
+                        </ul>
+                    </nav>
                 </div>
                 <div className={"updateTeamUpdateButton"}>
                     <button id={"updateTeamUpdateButton"} type="button" className="btn btn-dark" onClick={() => this.updateTeam(this.state.users)}>Update</button>

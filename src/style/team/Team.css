@@ -107,3 +107,13 @@ table {
     position: relative;
     top: 50px;
 }
+
+.addTeamUsersPages {
+    position: relative;
+    top: 130px;
+}
+
+.updateTeamUsersPages {
+    position: relative;
+    top: 130px;
+}
