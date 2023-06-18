@@ -17,8 +17,9 @@
     margin-top: 10px;
 }
 
-.button {
-    margin-top: 15px;
+.formsCreateNewFormPage {
+    position: relative;
+    top: 25px;
 }
 
 .form-control {
@@ -104,4 +105,9 @@
     position: relative;
     top: 100px;
     width: 150px;
+}
+
+.formsPages {
+    position: relative;
+    top: 25px;
 }

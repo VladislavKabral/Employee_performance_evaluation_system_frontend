@@ -8,7 +8,9 @@ class Teams extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            teams: []
+            teams: [],
+            currentTeams: [],
+            currentPage: 0
         }
     }
 
@@ -26,6 +28,8 @@ class Teams extends Component {
             }).catch(function (error) {
             console.log(error);
         })
+
+        this.getCurrentTeams(this.state.currentPage);
     }
 
     processTeam(index, team) {
@@ -43,9 +47,62 @@ class Teams extends Component {
         )
     }
 
+    async getCurrentTeams(pageNumber) {
+        await fetch(`http://localhost:8080/teams/page/${pageNumber}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        }).then(response => response.json())
+            .then(data => {
+                this.setState({
+                    currentTeams: data
+                })
+            }).catch(function (error) {
+                console.log(error);
+            });
+        this.componentDidMount();
+    }
+
+    generatePageLink(index) {
+        return (
+            <>
+                <li className="page-item"><a className="page-link"
+                                             onClick={() => this.setState({currentPage: index - 1})}>{index}</a></li>
+            </>
+        )
+    }
+
+    handleClickToPreviousPage = () => {
+        const page = this.state.currentPage;
+
+        if (page > 0) {
+            this.setState({currentPage:  this.state.currentPage - 1})
+        }
+    }
+
+    handleClickToNextPage = (pageCount) => {
+        const page = this.state.currentPage;
+
+        if (page < pageCount - 1) {
+            this.setState({currentPage:  this.state.currentPage + 1})
+        }
+    }
+
     render() {
-        const processedTeams = React.Children.toArray(this.state.teams.map((team) =>
-            this.processTeam(this.state.teams.indexOf(team) + 1, team)));
+        const processedTeams = React.Children.toArray(this.state.currentTeams.map((team) =>
+            this.processTeam(this.state.currentTeams.indexOf(team) + 1, team)));
+
+        const countOfPages = Math.ceil(this.state.teams.length / 10);
+
+        let tempLinks = [];
+        for (let i = 1; i <= countOfPages; i++) {
+            tempLinks.push(this.generatePageLink(i));
+        }
+
+        const pageLinks = React.Children.toArray(tempLinks);
 
         return (
             <div>
@@ -64,12 +121,25 @@ class Teams extends Component {
                             </tbody>
                         </table>
                     </div>
-                    <div className={"button"}>
+                    <div className={"teamsCreateNewTeamButton"}>
                         {localStorage.getItem("currentUserRole") === "DIRECTOR" &&
                             <NavLink to={"/addTeam"}>
                                 <button id={"teamsCreateNewTeamButton"} type="button" className="btn btn-dark">Create new team</button>
                             </NavLink>
                         }
+                    </div>
+                    <div className={"teamsPages"}>
+                        <nav aria-label="Page navigation">
+                            <ul className="pagination">
+                                <li className="page-item"><a className="page-link"
+                                                             onClick={() => this.handleClickToPreviousPage()}>
+                                    Previous</a></li>
+                                {pageLinks}
+                                <li className="page-item"><a className="page-link"
+                                                             onClick={() => this.handleClickToNextPage(countOfPages)}>
+                                    Next</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>

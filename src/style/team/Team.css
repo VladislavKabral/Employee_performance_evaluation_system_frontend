@@ -9,9 +9,9 @@ table {
     color: white;
 }
 
-.button {
+.teamsCreateNewTeamButton {
     position: relative;
-    top: 100px;
+    top: 25px;
 }
 
 .teamNameField {
@@ -23,7 +23,7 @@ table {
 
 .employees {
     position: relative;
-    top: 50px;
+    top: 75px;
 }
 
 #teamUpdateButton {
@@ -103,3 +103,7 @@ table {
     top: 79px;
 }
 
+.teamsPages {
+    position: relative;
+    top: 50px;
+}

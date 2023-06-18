@@ -7,7 +7,9 @@ class Packages extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            packages: []
+            packages: [],
+            currentPackages: [],
+            currentPage: 0
         }
     }
 
@@ -25,6 +27,8 @@ class Packages extends Component {
             }).catch(function (error) {
             console.log(error);
         })
+
+        this.getCurrentPackages(this.state.currentPage);
     }
 
     processPackage(index, feedbackPackage) {
@@ -42,9 +46,62 @@ class Packages extends Component {
         )
     }
 
+    async getCurrentPackages(pageNumber) {
+        await fetch(`http://localhost:8080/packages/page/${pageNumber}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        }).then(response => response.json())
+            .then(data => {
+                this.setState({
+                    currentPackages: data
+                })
+            }).catch(function (error) {
+                console.log(error);
+            });
+        this.componentDidMount();
+    }
+
+    generatePageLink(index) {
+        return (
+            <>
+                <li className="page-item"><a className="page-link"
+                                             onClick={() => this.setState({currentPage: index - 1})}>{index}</a></li>
+            </>
+        )
+    }
+
+    handleClickToPreviousPage = () => {
+        const page = this.state.currentPage;
+
+        if (page > 0) {
+            this.setState({currentPage:  this.state.currentPage - 1})
+        }
+    }
+
+    handleClickToNextPage = (pageCount) => {
+        const page = this.state.currentPage;
+
+        if (page < pageCount - 1) {
+            this.setState({currentPage:  this.state.currentPage + 1})
+        }
+    }
+
     render() {
-        const processedPackages = React.Children.toArray(this.state.packages.map((feedbackPackage) =>
-            this.processPackage(this.state.packages.indexOf(feedbackPackage) + 1, feedbackPackage)));
+        const processedPackages = React.Children.toArray(this.state.currentPackages.map((feedbackPackage) =>
+            this.processPackage(this.state.currentPackages.indexOf(feedbackPackage) + 1, feedbackPackage)));
+
+        const countOfPages = Math.ceil(this.state.packages.length / 10);
+
+        let tempLinks = [];
+        for (let i = 1; i <= countOfPages; i++) {
+            tempLinks.push(this.generatePageLink(i));
+        }
+
+        const pageLinks = React.Children.toArray(tempLinks);
 
         return (
             <div>
@@ -62,6 +119,19 @@ class Packages extends Component {
                             {processedPackages}
                             </tbody>
                         </table>
+                    </div>
+                    <div className={"packagesPages"}>
+                        <nav aria-label="Page navigation">
+                            <ul className="pagination">
+                                <li className="page-item"><a className="page-link"
+                                                             onClick={() => this.handleClickToPreviousPage()}>
+                                    Previous</a></li>
+                                {pageLinks}
+                                <li className="page-item"><a className="page-link"
+                                                             onClick={() => this.handleClickToNextPage(countOfPages)}>
+                                    Next</a></li>
+                            </ul>
+                        </nav>
                     </div>
                     <div className={"button"}>
                         <NavLink to={"/addPackage"}>
